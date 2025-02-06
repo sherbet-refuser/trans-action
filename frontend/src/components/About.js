@@ -11,8 +11,18 @@ function About() {
 
                 <h3>Links</h3>
                 <ul>
-                    <li>Organization Charter: <span className="pending">TBD</span></li>
-                    <li>Website/Server Source Code: <span className="pending">TBD</span></li>
+                    <li>
+                        Organization Charter (Proposed):
+                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md">charter.md</a>
+                    </li>
+                    <li>
+                        Anti-Money Laundering Policies (Proposed):
+                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/aml.md">aml.md</a>
+                    </li>
+                    <li>
+                        Website/Server Source Code:
+                        <a href="https://github.com/sherbet-refuser/trans-action">GitHub Repo</a>
+                    </li>
                 </ul>
 
                 <h3>Contact</h3>
