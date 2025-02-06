@@ -12,15 +12,15 @@ function About() {
                 <h3>Links</h3>
                 <ul>
                     <li>
-                        Organization Charter (Proposed):
+                        Organization Charter (Proposed):&nbsp;
                         <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md">charter.md</a>
                     </li>
                     <li>
-                        Anti-Money Laundering Policies (Proposed):
+                        Anti-Money Laundering Policies (Proposed):&nbsp;
                         <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/aml.md">aml.md</a>
                     </li>
                     <li>
-                        Website/Server Source Code:
+                        Website/Server Source Code:&nbsp;
                         <a href="https://github.com/sherbet-refuser/trans-action">GitHub Repo</a>
                     </li>
                 </ul>
