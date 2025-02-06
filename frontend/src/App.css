@@ -1,0 +1,266 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: #111;
+    color: #eee;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #222;
+    color: #eee;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+button.active {
+    background-color: #FFFFFF;
+    color: #111;
+    border-color: #FFFFFF;
+}
+
+.contribute-btn {
+    background-color: #F5A9B8;
+    color: #111;
+    border: 1px solid #F5A9B8;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.contribute-btn:hover {
+    background-color: #e091a4;
+}
+
+h2 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+/* minimal "card" grid */
+.transactions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.transaction-card {
+    border: 1px solid #444;
+    background-color: #222;
+    border-radius: 3px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* keep it small and minimal */
+}
+
+.transaction-date {
+    font-weight: bold;
+}
+
+.transaction-type-amount {
+    color: #5BCEFA;
+}
+
+.total-balance {
+    font-size: 2.0em;
+    color: #5BCEFA;
+}
+
+.transaction-contribution {
+    color: #F5A9B8;
+}
+
+.transaction-withdrawal {
+    color: #5BCEFA;
+}
+
+.last-sync {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* mobile tweaks */
+@media (max-width: 600px) {
+    .app-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .transaction-card {
+        padding: 6px;
+    }
+
+    .transactions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* About page styles */
+.about-content {
+    line-height: 1.6;
+}
+
+.about-content h3 {
+    margin-top: 1.5em;
+    color: #5BCEFA;
+}
+
+.about-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-content ul li {
+    margin-bottom: 0.5em;
+}
+
+.about-content .pending {
+    color: #888;
+    font-style: italic;
+}
+
+.about-content a {
+    color: #F5A9B8;
+    text-decoration: none;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
+
+.aid-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+/* On mobile, display fieldsets stacked; on desktop, place them in two columns */
+.aid-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .aid-form-fields {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .aid-form-fields fieldset {
+        flex: 1;
+    }
+}
+
+/* Set each field to stack vertically: label then input */
+.aid-form fieldset label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Remove grid layout from fieldsets */
+.aid-form fieldset {
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.8rem;
+    margin: 0;
+}
+
+.aid-form fieldset>label,
+.aid-form fieldset>input,
+.aid-form fieldset>select,
+.aid-form fieldset>textarea {
+    width: 100%;
+}
+
+.aid-form legend {
+    font-weight: bold;
+    padding: 0 0.4rem;
+}
+
+.aid-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.aid-form input,
+.aid-form select,
+.aid-form textarea,
+button[type="submit"] {
+    width: 100%;
+    background-color: #111;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #eee;
+    padding: 0.6rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.aid-form input:focus,
+.aid-form select:focus,
+.aid-form textarea:focus,
+button[type="submit"]:focus {
+    outline: 2px solid #5BCEFA;
+    outline-offset: 2px;
+}
+
+.aid-form input[type="number"]::-webkit-inner-spin-button,
+.aid-form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.aid-form button[type="submit"] {
+    width: auto;
+    align-self: flex-start;
+    /* Override default styling to use trans flag blue */
+    background-color: #5BCEFA;
+    color: #111;
+    border: 1px solid #5BCEFA;
+}
+
+.aid-disclaimer {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #ccc;
+    font-style: italic;
+    margin: 0;
+}

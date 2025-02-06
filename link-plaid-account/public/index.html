@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Plaid Link Utility</title>
+    <!-- Optional: Update CSP to allow Plaid's domains -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://cdn.plaid.com https://analytics.plaid.com; script-src 'self' 'unsafe-inline' https://cdn.plaid.com https://analytics.plaid.com;">
+</head>
+
+<body>
+    <button id="link-button">Link Bank Account</button>
+    <pre id="result"></pre>
+
+    <!-- Load Plaid Link library -->
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    <script>
+        // When the button is clicked, request a link token and launch Plaid Link.
+        document.getElementById('link-button').onclick = async () => {
+            try {
+                // Request link_token from backend:
+                const resp = await fetch('/api/create_link_token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const tokenData = await resp.json();
+                if (!tokenData.link_token) {
+                    document.getElementById('result').innerText = 'Error: no link token returned';
+                    return;
+                }
+                // Initialize Plaid Link with the token
+                const handler = Plaid.create({
+                    token: tokenData.link_token,
+                    onSuccess: async (public_token, metadata) => {
+                        document.getElementById('result').innerText = 'Public Token: ' + public_token + '\n\nExchanging token...';
+                        // Exchange for an access token
+                        const exchangeResp = await fetch('/api/exchange_public_token', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ public_token })
+                        });
+                        const exchangeData = await exchangeResp.json();
+                        document.getElementById('result').innerText = 'Access Token: ' + exchangeData.access_token +
+                            '\n\nFull Response:\n' + JSON.stringify(exchangeData, null, 2);
+                    },
+                    onExit: (err, metadata) => {
+                        if (err) {
+                            document.getElementById('result').innerText = 'Error: ' + JSON.stringify(err);
+                        }
+                    }
+                });
+                handler.open();
+            } catch (error) {
+                document.getElementById('result').innerText = 'Fetch error: ' + error;
+            }
+        };
+    </script>
+</body>
+
+</html>
