@@ -13,21 +13,21 @@ function About() {
                 <ul>
                     <li>
                         Organization Charter (Proposed):&nbsp;
-                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md">charter.md</a>
+                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md" target="_blank" rel="noopener noreferrer">charter.md</a>
                     </li>
                     <li>
                         Anti-Money Laundering Policies (Proposed):&nbsp;
-                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/aml.md">aml.md</a>
+                        <a href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/aml.md" target="_blank" rel="noopener noreferrer">aml.md</a>
                     </li>
                     <li>
                         Website/Server Source Code:&nbsp;
-                        <a href="https://github.com/sherbet-refuser/trans-action">GitHub Repo</a>
+                        <a href="https://github.com/sherbet-refuser/trans-action" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
                     </li>
                 </ul>
 
                 <h3>Contact</h3>
                 <ul>
-                    <li>Website Admin: <a href="mailto:sherbet-refuser0j@icloud.com">sherbet-refuser0j@icloud.com</a></li>
+                    <li>Website Admin: <a href="mailto:sherbet-refuser0j@icloud.com" target="_blank" rel="noopener noreferrer">sherbet-refuser0j@icloud.com</a></li>
                 </ul>
             </div>
         </div>
