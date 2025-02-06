@@ -188,9 +188,11 @@ async function runTasks() {
 
 cron.schedule(config.scheduler.interval, async () => {
     await runTasks();
+}, {
+    timezone: config.scheduler.timezone
 });
 
-console.log('Scheduler started with interval:', config.scheduler.interval);
+console.log('Scheduler started with interval:', config.scheduler.interval, 'timezone:', config.scheduler.timezone);
 
 // Immediately run tasks once when starting
 // runTasks();

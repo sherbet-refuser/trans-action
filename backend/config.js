@@ -16,7 +16,9 @@ module.exports = {
         cutoff: '2025-01-15'
     },
     scheduler: {
-        interval: '0 0 * * *' // updated to run once a day at midnight
+        // daily at midnight (pacific)
+        interval: '0 0 * * *',
+        timezone: 'America/Los_Angeles'
     },
     db: {
         dialect: 'sqlite',
