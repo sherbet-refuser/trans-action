@@ -49,7 +49,9 @@ function CurrentRequests({ latestRequests }) {
           const amount = parseFloat(req.amountRequested);
           const cardClass = `transaction-card${
             req.state === "Paid" ? " paid-border" : ""
-          }${req.state === "Failed Verification" ? " failed-verification" : ""}`;
+          }${req.state === "Failed Verification" ? " failed-verification" : ""}${
+            req.state === "Rejected" ? " rejected" : ""
+          }`;
           return (
             <div className={cardClass} key={req.id || idx}>
               <div className="transaction-date">{date}</div>

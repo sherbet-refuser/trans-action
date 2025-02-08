@@ -269,6 +269,6 @@ button[type="submit"]:focus {
     border: 2px solid #F5A9B8;
 }
 
-.failed-verification {
+.failed-verification, .rejected{
     opacity: 0.6;
 }
