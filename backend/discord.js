@@ -33,7 +33,8 @@ async function verifyDiscordPermissions(channel) {
 }
 
 const submittedNextStep = 'React with 👀 to start vetting this request.';
-const vettingNextStep = 'React with ✅ to verify this request, or ❌ to mark it as failed verification.';
+const vettingNextStep =
+  'React with ✅ to verify this request, or ❌ to mark it as failed verification.';
 const inReviewNextStep = `React with ${config.discord.majorityVote} 👍 to approve this request, or ${config.discord.majorityVote} 👎 to reject it.`;
 const approvedNextStep = 'React with 💵 to mark this request as paid.';
 
@@ -152,8 +153,9 @@ async function reattachCollectors(channel) {
     for (const thread of threadsData.threads.values()) {
       console.log(`Checking thread: ${thread.name}`);
       let messages = await thread.messages.fetch();
-      for (const message of messages.values()) {
-        attachCollector(message, thread.name);
+      const firstMessage = messages.first();
+      if (firstMessage.author.id === discordClient.user.id) {
+        attachCollector(firstMessage, thread.name);
         reattachedCount++;
       }
     }
