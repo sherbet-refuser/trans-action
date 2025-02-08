@@ -17,7 +17,7 @@ function getContactInfoLabel(method) {
 }
 
 function mapRequestState(state) {
-    return state.toLowerCase();
+  return state.toLowerCase();
 }
 
 function CurrentRequests({ latestRequests }) {
@@ -48,9 +48,9 @@ function CurrentRequests({ latestRequests }) {
           const date = new Date(req.requestReceivedAt).toLocaleDateString();
           const amount = parseFloat(req.amountRequested);
           const cardClass = `transaction-card${
-            req.state === "Paid" ? " paid-border" : ""
-          }${req.state === "Failed Verification" ? " failed-verification" : ""}${
-            req.state === "Rejected" ? " rejected" : ""
+            req.state === 'Paid' ? ' paid-border' : ''
+          }${req.state === 'Failed Verification' ? ' failed-verification' : ''}${
+            req.state === 'Rejected' ? ' rejected' : ''
           }`;
           return (
             <div className={cardClass} key={req.id || idx}>
@@ -277,8 +277,8 @@ function RequestAidForm({ refreshData }) {
         </div>
         <p style={{ marginTop: '1rem' }}>
           once you submit, our team will begin reviewing your request. if you
-          don't hear back within one week, please reach out to the email
-          or discord channel on the <i>about</i> page.
+          don't hear back within one week, please reach out to the email or
+          discord channel on the <i>about</i> page.
         </p>
         <button type="submit" disabled={!config.requestAidEnabled}>
           {config.requestAidEnabled ? 'request aid' : 'requests disabled'}

@@ -11,26 +11,26 @@ export default [
       parser: babelEslintParser, // now an object with parse() method
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
+          jsx: true,
         },
         requireConfigFile: false,
         babelOptions: {
-          presets: ['@babel/preset-react']
-        }
+          presets: ['@babel/preset-react'],
+        },
       },
       globals: {
         window: 'readonly',
         document: 'readonly',
         React: 'readonly',
-        ReactDOM: 'readonly'
-      }
+        ReactDOM: 'readonly',
+      },
     },
     plugins: {
       react: reactPlugin,
-      'react-hooks': reactHooksPlugin
+      'react-hooks': reactHooksPlugin,
     },
     settings: {
-      react: { version: 'detect' }
+      react: { version: 'detect' },
     },
     rules: {
       'react/jsx-uses-react': 'error',
@@ -38,7 +38,7 @@ export default [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'no-unused-vars': 'warn',
-      'no-console': 'off'
-    }
-  }
+      'no-console': 'off',
+    },
+  },
 ];
