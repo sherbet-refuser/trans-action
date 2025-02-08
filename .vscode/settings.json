@@ -1,10 +1,17 @@
 {
-    "cSpell.words": [
-        "noopener",
-        "noreferrer",
-        "Recordkeeping",
-        "redactions",
-        "supermajority",
-        "venmo"
-    ]
+  "cSpell.words": [
+    "noopener",
+    "noreferrer",
+    "Recordkeeping",
+    "redactions",
+    "supermajority",
+    "venmo"
+  ],
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "javascript.format.enable": false
 }
