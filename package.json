@@ -6,22 +6,26 @@
   "directories": {
     "doc": "docs"
   },
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint": "eslint --fix"
   },
   "repository": {
     "type": "git",
-    "url": "github-kay:sherbet-refuser/trans-action.git"
+    "url": "github.com:sherbet-refuser/trans-action.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.26.5",
+    "@babel/preset-react": "^7.26.3",
     "@types/react": "^19.0.8",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "prettier": "^3.4.2"
   }
 }

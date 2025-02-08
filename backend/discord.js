@@ -117,7 +117,7 @@ function attachCollector(message, threadName) {
     const emoji = reaction.emoji.name;
     const current = reaction.count;
     console.log(
-      `Collected ${emoji} (count: ${current}) from ${user.tag} in thread ${threadName}`
+      `Collected ${emoji} (count: ${current}) from ${user.tag} in thread '${threadName}'`
     );
 
     updateState(message);
@@ -127,14 +127,14 @@ function attachCollector(message, threadName) {
     const emoji = reaction.emoji.name;
     const current = reaction.count;
     console.log(
-      `Removed ${emoji} (count: ${current}) from ${user.tag} in thread ${threadName}`
+      `Removed ${emoji} (count: ${current}) from ${user.tag} in thread '${threadName}'`
     );
     updateState(message);
   });
 
   collector.on('end', (collected) => {
     console.log(
-      `Collector for thread ${threadName} ended with ${collected.size} events.`
+      `Collector for thread '${threadName}' ended with ${collected.size} events.`
     );
   });
 }
