@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "docker:start": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build && npm install -g serve && serve -s build; else npm start; fi"
   },
   "browserslist": {
     "production": [
