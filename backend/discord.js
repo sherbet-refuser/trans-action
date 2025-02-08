@@ -32,6 +32,11 @@ async function verifyDiscordPermissions(channel) {
   }
 }
 
+const submittedNextStep = 'React with 👀 to start vetting this request.';
+const vettingNextStep = 'React with ✅ to verify this request, or ❌ to mark it as failed verification.';
+const inReviewNextStep = `React with ${config.discord.majorityVote} 👍 to approve this request, or ${config.discord.majorityVote} 👎 to reject it.`;
+const approvedNextStep = 'React with 💵 to mark this request as paid.';
+
 function updateState(message) {
   const stateRegex = /(\*\*State\*\*:\s*)(.*?)(?=\n|$)/;
   const currentStateMatch = message.content.match(stateRegex);
@@ -43,11 +48,10 @@ function updateState(message) {
   let newState, nextActionMsg;
   if (count('👀') < 1) {
     newState = 'Submitted';
-    nextActionMsg = 'React with 👀 to start vetting this request.';
+    nextActionMsg = submittedNextStep;
   } else if (count('✅') < 1 && count('❌') < 1) {
     newState = 'Vetting';
-    nextActionMsg =
-      'React with ✅ to verify this request, or ❌ to mark it as failed verification.';
+    nextActionMsg = vettingNextStep;
   } else if (count('❌') >= 1) {
     newState = 'Failed Verification';
     nextActionMsg = '';
@@ -57,13 +61,13 @@ function updateState(message) {
     count('👎') < majorityVote
   ) {
     newState = 'In Review';
-    nextActionMsg = `React with ${majorityVote} 👍 to approve this request, or ${majorityVote} 👎 to reject it.`;
+    nextActionMsg = inReviewNextStep;
   } else if (count('👎') >= majorityVote) {
     newState = 'Rejected';
     nextActionMsg = '';
   } else if (count('👍') >= majorityVote && count('💵') < 1) {
     newState = 'Approved';
-    nextActionMsg = 'React with 💵 to mark this request as paid.';
+    nextActionMsg = approvedNextStep;
   } else {
     newState = 'Paid';
     nextActionMsg = '';
@@ -231,7 +235,7 @@ async function sendDiscordAidRequest(details) {
 **Timestamp:** ${requestReceivedAt.toLocaleString()}
 
 **State**: Submitted
-**Next Step**: React with 👀 to start vetting this request.
+**Next Step**: ${submittedNextStep}.
 `);
       // Attach reaction collector for the new message.
       attachCollector(sentMsg, thread.name);
