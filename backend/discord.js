@@ -214,7 +214,7 @@ async function sendDiscordAidRequest(details) {
       });
       const sentMsg = await thread.send(`
 **Name:** ${name}
-**Is Trans:** ${isTrans}
+**Trans or Nonbinary:** ${isTrans}
 **Pronouns:** ${pronouns}
 **Amount Requested:** $${amountRequested}
 **Category:** ${category}

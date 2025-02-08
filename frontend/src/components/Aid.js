@@ -178,7 +178,7 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setPronouns(e.target.value)}
               required
             />
-            <label htmlFor="isTrans">are you trans?</label>
+            <label htmlFor="isTrans">do you identify as trans or nonbinary?</label>
             <select
               id="isTrans"
               value={isTrans}
