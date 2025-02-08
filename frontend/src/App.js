@@ -33,6 +33,9 @@ function App() {
           <span style={{ color: '#F5A9B8' }}>Trans</span>
           <span style={{ color: '#FFFFFF' }}>Action</span>{' '}
           <span style={{ color: '#F5A9B8' }}>Fund</span>
+          {config.app.env !== 'production' && (
+            <span style={{ color: '#5BCEFA' }}> [dev]</span>
+          )}
         </h1>
       </header>
       <nav>
