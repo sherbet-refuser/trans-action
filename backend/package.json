@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "discord.js": "^14.17.3",
     "express": "^4.18.2",
+    "geoip-lite": "^1.4.10",
     "node-cron": "^3.0.2",
     "plaid": "^30.1.0",
     "sequelize": "^6.32.1",

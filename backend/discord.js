@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('./config');
 const { AidRequest } = require('./db');
+const geoip = require('geoip-lite');
 
 const discordClient = new Client({
   intents: [
@@ -171,6 +172,18 @@ discordClient.once('ready', async () => {
   }
 });
 
+function getLocation(ip) {
+	const geo = geoip.lookup(ip);
+	if (geo) {
+		const { city, region, country } = geo;
+		let locationStr = city ? `${city}` : 'Unknown City';
+		if (region) locationStr += `, ${region}`;
+		locationStr += `, ${country || 'Unknown Country'}`;
+		return locationStr;
+	}
+	return 'Location not available';
+}
+
 async function sendDiscordAidRequest(details) {
   try {
     const channel = await discordClient.channels.fetch(
@@ -193,6 +206,7 @@ async function sendDiscordAidRequest(details) {
         userIP,
         requestReceivedAt,
       } = details;
+      const location = getLocation(userIP);
       const thread = await channel.threads.create({
         name: `Aid Request from ${name} for ${category}`,
         autoArchiveDuration: 10080, // 7 days in minutes
@@ -213,7 +227,8 @@ async function sendDiscordAidRequest(details) {
 
 **Request ID:** ${id}
 **IP Address:** ${userIP}
-**Request Received:** ${requestReceivedAt.toLocaleString()}
+**Approximate Location:** ${location}
+**Timestamp:** ${requestReceivedAt.toLocaleString()}
 
 **State**: Submitted
 **Next Step**: React with 👀 to start vetting this request.
