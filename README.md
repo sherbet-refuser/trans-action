@@ -5,33 +5,37 @@ a mutual aid platform
 the backend intermittently pulls payment and bank data, and updates a sqlite db. the frontend is a react single-page app.
 
 ## Prerequisites
+
 - node & npm
 - (optional) docker & docker-compose
 
 ## Setup
 
 ### Backend
+
 1. cd into `backend`
    ```bash
    cd backend
    npm install
    ```
-2.	(optional) set your env vars or update config.js for BANK_API_KEY, PAYMENT_PROCESSOR_URL, etc.
-3.	run the server:
-    ```bash
-    npm start
-4.	run the scheduler (in another terminal):
-    ```bash
-    npm run scheduler
-    ```
+2. (optional) set your env vars or update config.js for BANK_API_KEY, PAYMENT_PROCESSOR_URL, etc.
+3. run the server:
+   ```bash
+   npm start
+   ```
+4. run the scheduler (in another terminal):
+   ```bash
+   npm run scheduler
+   ```
 
 ### Frontend
-	1.	cd into frontend
+
+    1.	cd into frontend
     ```bash
     cd frontend
     npm install
     ```
-	2.	start the app:
+    2.	start the app:
     ```bash
     npm start
     ```

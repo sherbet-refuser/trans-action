@@ -2,9 +2,9 @@ const { Sequelize } = require('sequelize');
 const config = require('./config');
 
 const sequelize = new Sequelize({
-    dialect: config.db.dialect,
-    storage: config.db.storage,
-    logging: false
+  dialect: config.db.dialect,
+  storage: config.db.storage,
+  logging: false,
 });
 
 // load models
@@ -16,4 +16,13 @@ const StripeBalance = require('./models/StripeBalance')(sequelize);
 const SyncStatus = require('./models/SyncStatus')(sequelize);
 const AidRequest = require('./models/AidRequest')(sequelize);
 
-module.exports = { sequelize, BankBalance, BankWithdrawal, StripeCharge, StripeUser, StripeBalance, SyncStatus, AidRequest };
+module.exports = {
+  sequelize,
+  BankBalance,
+  BankWithdrawal,
+  StripeCharge,
+  StripeUser,
+  StripeBalance,
+  SyncStatus,
+  AidRequest,
+};
