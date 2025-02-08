@@ -264,3 +264,11 @@ button[type="submit"]:focus {
     font-style: italic;
     margin: 0;
 }
+
+.paid-border {
+    border: 2px solid #F5A9B8;
+}
+
+.failed-verification {
+    opacity: 0.6;
+}

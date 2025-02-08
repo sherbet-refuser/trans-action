@@ -17,18 +17,7 @@ function getContactInfoLabel(method) {
 }
 
 function mapRequestState(state) {
-  switch (state) {
-    case 'InReview':
-      return 'in review';
-    case 'Approved':
-      return 'approved';
-    case 'Rejected':
-      return 'rejected';
-    case 'Completed':
-      return 'completed';
-    default:
-      return state.toLowerCase();
-  }
+    return state.toLowerCase();
 }
 
 function CurrentRequests({ latestRequests }) {
@@ -58,8 +47,11 @@ function CurrentRequests({ latestRequests }) {
         {paginatedRequests.map((req, idx) => {
           const date = new Date(req.requestReceivedAt).toLocaleDateString();
           const amount = parseFloat(req.amountRequested);
+          const cardClass = `transaction-card${
+            req.state === "Paid" ? " paid-border" : ""
+          }${req.state === "Failed Verification" ? " failed-verification" : ""}`;
           return (
-            <div className="transaction-card" key={req.id || idx}>
+            <div className={cardClass} key={req.id || idx}>
               <div className="transaction-date">{date}</div>
               <div className="transaction-type-amount">
                 {req.category}: ${amount.toFixed(2)}
