@@ -275,8 +275,8 @@ function RequestAidForm({ refreshData }) {
         </div>
         <p style={{ marginTop: '1rem' }}>
           once you submit, our team will begin reviewing your request. if you
-          don't hear back within one week, please reach out to the email on the{' '}
-          <i>about</i> page.
+          don't hear back within one week, please reach out to the email
+          or discord channel on the <i>about</i> page.
         </p>
         <button type="submit" disabled={!config.requestAidEnabled}>
           {config.requestAidEnabled ? 'request aid' : 'requests disabled'}

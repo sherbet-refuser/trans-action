@@ -52,13 +52,23 @@ function About() {
         <h3>Contact</h3>
         <ul>
           <li>
-            Website Admin:{' '}
+            Website Admin:&nbsp;
             <a
               href="mailto:sherbet-refuser0j@icloud.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               sherbet-refuser0j@icloud.com
+            </a>
+          </li>
+          <li>
+            Discord Support Channel:&nbsp;
+            <a
+              href="https://discord.gg/Pm3XEhfYsC"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://discord.gg/Pm3XEhfYsC
             </a>
           </li>
         </ul>
