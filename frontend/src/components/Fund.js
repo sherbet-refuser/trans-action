@@ -7,7 +7,7 @@ function Balance({ latestData }) {
     return (
       <div>
         <h2>balance</h2>
-        <div>loading balance...</div>
+        <div className="loading-text">loading balance...</div>
       </div>
     );
   }
@@ -42,7 +42,7 @@ function Transactions({ latestData }) {
     return (
       <div>
         <h2>transactions</h2>
-        <div>loading transactions...</div>
+        <div className="loading-text">loading transactions...</div>
       </div>
     );
   }
@@ -86,7 +86,7 @@ function Transactions({ latestData }) {
         })}
       </div>
       <div style={{ marginTop: '10px' }}>
-        <span style={{ marginRight: '8px' }}>
+        <span className="page-text" style={{ marginRight: '8px' }}>
           page {page}/{totalPages}
         </span>
         {page > 1 && (

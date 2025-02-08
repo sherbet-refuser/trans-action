@@ -11,26 +11,31 @@ body {
     padding: 20px;
 }
 
-nav {
-    margin-bottom: 20px;
+header {
+    margin-bottom: 40px;
 }
 
-button {
+nav {
+    margin-bottom: 30px;
+}
+
+.nav-link {
     background-color: #222;
     color: #eee;
     border: 1px solid #333;
     padding: 10px 15px;
     margin-right: 10px;
-    cursor: pointer;
+    text-decoration: none;
     border-radius: 3px;
     transition: background-color 0.2s ease;
+    font-family: Arial, sans-serif;
 }
 
-button:hover {
+.nav-link:hover {
     background-color: #444;
 }
 
-button.active {
+.nav-link.active {
     background-color: #FFFFFF;
     color: #111;
     border-color: #FFFFFF;
@@ -55,7 +60,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* minimal "card" grid */
 .transactions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -71,7 +75,6 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    /* keep it small and minimal */
 }
 
 .transaction-date {
@@ -100,7 +103,6 @@ h2 {
     font-size: 0.9em;
 }
 
-/* mobile tweaks */
 @media (max-width: 600px) {
     .app-container {
         max-width: 100%;
@@ -126,7 +128,6 @@ h2 {
     }
 }
 
-/* About page styles */
 .about-content {
     line-height: 1.6;
 }
@@ -169,7 +170,6 @@ h2 {
     padding: 1rem;
 }
 
-/* On mobile, display fieldsets stacked; on desktop, place them in two columns */
 .aid-form-fields {
     display: flex;
     flex-direction: column;
@@ -187,13 +187,11 @@ h2 {
     }
 }
 
-/* Set each field to stack vertically: label then input */
 .aid-form fieldset label {
     display: block;
     margin-bottom: 0.3rem;
 }
 
-/* Remove grid layout from fieldsets */
 .aid-form fieldset {
     border: 1px solid #333;
     border-radius: 4px;
@@ -251,7 +249,6 @@ button[type="submit"]:focus {
 .aid-form button[type="submit"] {
     width: auto;
     align-self: flex-start;
-    /* Override default styling to use trans flag blue */
     background-color: #5BCEFA;
     color: #111;
     border: 1px solid #5BCEFA;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import config from '../config';
 
 function getContactInfoLabel(method) {
@@ -26,7 +27,7 @@ function CurrentRequests({ latestRequests }) {
     return (
       <div>
         <h2>requests for aid</h2>
-        <div>loading requests...</div>
+        <div className="loading-text">Loading requests...</div>
       </div>
     );
   }
@@ -66,7 +67,7 @@ function CurrentRequests({ latestRequests }) {
         })}
       </div>
       <div style={{ marginTop: '10px' }}>
-        <span style={{ marginRight: '8px' }}>
+        <span className="page-text" style={{ marginRight: '8px' }}>
           page {page}/{totalPages}
         </span>
         {page > 1 && (
@@ -150,7 +151,7 @@ function RequestAidForm({ refreshData }) {
       <h2>new request</h2>
       <p>
         to request money from the fund, fill out the following form. money will
-        only be distributed to members of the trans community in seattle after
+        only be distributed to members of the trans community in Seattle after
         they have been vetted by our team.
       </p>
       <form
@@ -279,8 +280,8 @@ function RequestAidForm({ refreshData }) {
         </div>
         <p style={{ marginTop: '1rem' }}>
           once you submit, our team will begin reviewing your request. if you
-          don't hear back within one week, please reach out to the email or
-          discord channel on the <i>about</i> page.
+          don't hear back within one week, please reach out to the email address
+          or Discord channel on the <Link to="/about" style={{ textDecoration: 'underline', color: 'inherit' }}>about</Link> page.
         </p>
         <button type="submit" disabled={!config.requestAidEnabled}>
           {config.requestAidEnabled ? 'request aid' : 'requests disabled'}
