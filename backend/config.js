@@ -20,8 +20,14 @@ module.exports = {
         interval: '0 0 * * *',
         timezone: 'America/Los_Angeles'
     },
+    discord: {
+        botToken: process.env.DISCORD_BOT_TOKEN,
+        aidRequestChannelId: process.env.DISCORD_AID_REQUEST_CHANNEL_ID,
+        treasurerRoleId: process.env.DISCORD_TREASURER_ROLE_ID
+    },
     db: {
         dialect: 'sqlite',
         storage: './db/database.sqlite'
-    }
+    },
+    majorityVote: parseInt(process.env.MAJORITY_VOTE, 10)
 };

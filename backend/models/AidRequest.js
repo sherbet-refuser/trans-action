@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
         contactMethod: { type: DataTypes.STRING, allowNull: false },
         contactInfo: { type: DataTypes.STRING, allowNull: false },
         receiveMethod: { type: DataTypes.STRING, allowNull: false },
-        state: { type: DataTypes.STRING, defaultValue: 'InReview' }, // InReview, Approved, Rejected, Completed
+        state: { type: DataTypes.STRING, defaultValue: 'Submitted' },
         ip: { type: DataTypes.STRING, allowNull: false },
         requestReceivedAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW }
     }, {

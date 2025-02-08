@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { BankBalance, BankWithdrawal, StripeCharge, StripeBalance, SyncStatus, AidRequest } = require('../db');
+const { sendDiscordAidRequest } = require('../discord');
 
 // GET /api/v1/latest – returns the latest data
 router.get('/latest', async (req, res) => {
@@ -12,7 +13,6 @@ router.get('/latest', async (req, res) => {
         const syncStatus = await SyncStatus.findOne();
         const requests = await AidRequest.findAll({ order: [['requestReceivedAt', 'DESC']] });
 
-        // Filter and send only fields used by the frontend
         res.json({
             bankBalance: bankBalance ? { amount: bankBalance.amount } : null,
             bankWithdrawals: bankWithdrawals.map(item => ({
@@ -51,7 +51,8 @@ router.post('/request', async (req, res) => {
         // (Optional) Validate fields if necessary.
 
         const userIP = req.ip;
-        await AidRequest.create({
+        const requestReceivedAt = new Date();
+        const newRequest = await AidRequest.create({
             name,
             isTrans,
             pronouns,
@@ -63,10 +64,12 @@ router.post('/request', async (req, res) => {
             contactMethod,
             contactInfo,
             receiveMethod,
-            state: 'InReview',
+            state: 'Submitted',
             ip: userIP,
-            requestReceivedAt: new Date()
+            requestReceivedAt
         });
+
+        sendDiscordAidRequest({ id: newRequest.id, name, isTrans, pronouns, amountRequested, category, description, neighborhood, socialMedia, contactMethod, contactInfo, receiveMethod, userIP, requestReceivedAt });
 
         res.sendStatus(200);
     } catch (error) {
