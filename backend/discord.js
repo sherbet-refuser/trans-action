@@ -31,6 +31,7 @@ function updateState(message) {
 
     const count = emoji => message.reactions.cache.get(emoji)?.count || 0;
 
+    const majorityVote = config.discord.majorityVote;
     let newState, nextActionMsg;
     if (count('👀') < 1) {
         newState = "Submitted";
@@ -41,13 +42,13 @@ function updateState(message) {
     } else if (count('❌') >= 1) {
         newState = "Failed Verification";
         nextActionMsg = "";
-    } else if (count('✅') >= 1 && count('👍') < config.majorityVote && count('👎') < config.majorityVote) {
+    } else if (count('✅') >= 1 && count('👍') < majorityVote && count('👎') < majorityVote) {
         newState = "In Review";
-        nextActionMsg = `React with ${config.majorityVote} 👍 to approve this request, or ${config.majorityVote} 👎 to reject it.`;
-    } else if (count('👎') >= config.majorityVote) {
+        nextActionMsg = `React with ${majorityVote} 👍 to approve this request, or ${majorityVote} 👎 to reject it.`;
+    } else if (count('👎') >= majorityVote) {
         newState = "Rejected";
         nextActionMsg = "";
-    } else if (count('👍') >= config.majorityVote && count('💵') < 1) {
+    } else if (count('👍') >= majorityVote && count('💵') < 1) {
         newState = "Approved";
         nextActionMsg = "React with 💵 to mark this request as paid.";
     } else {
@@ -66,7 +67,7 @@ function updateState(message) {
                 console.log(`Updated message state from ${currentState} to ${newState}`);
                 // If state is "Approved", reply to the thread, pinging the @treasurer role.
                 if (newState === "Approved") {
-                    message.channel.send(`<@&${config.discord.treasurerRoleId}> please process this approved request.`);
+                    message.channel.send(`<@&${config.discord.treasurerRoleId}> please process this request for payment.`);
                 }
             })
             .catch(err => console.error('Failed to update message state:', err));

@@ -22,12 +22,12 @@ module.exports = {
     },
     discord: {
         botToken: process.env.DISCORD_BOT_TOKEN,
-        aidRequestChannelId: process.env.DISCORD_AID_REQUEST_CHANNEL_ID,
-        treasurerRoleId: process.env.DISCORD_TREASURER_ROLE_ID
+        aidRequestChannelId: process.env.DISCORD_AID_REVIEW_CHANNEL_ID,
+        treasurerRoleId: process.env.DISCORD_TREASURER_ROLE_ID,
+        majorityVote: parseInt(process.env.DISCORD_MAJORITY_VOTE, 10)
     },
     db: {
         dialect: 'sqlite',
         storage: './db/database.sqlite'
-    },
-    majorityVote: parseInt(process.env.MAJORITY_VOTE, 10)
+    }
 };
