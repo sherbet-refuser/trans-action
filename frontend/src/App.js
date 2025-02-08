@@ -7,7 +7,7 @@ import './App.css';
 import config from './config';
 
 function App() {
-  const [view, setView] = useState('fund'); // 'fund', 'about', 'aid'
+  const [view, setView] = useState('aid');
   const [latestData, setLatestData] = useState(null);
 
   const refreshLatestData = () => {
@@ -37,16 +37,16 @@ function App() {
       </header>
       <nav>
         <button
-          className={view === 'fund' ? 'active' : ''}
-          onClick={() => setView('fund')}
-        >
-          fund
-        </button>
-        <button
           className={view === 'aid' ? 'active' : ''}
           onClick={() => setView('aid')}
         >
           aid
+        </button>
+        <button
+          className={view === 'fund' ? 'active' : ''}
+          onClick={() => setView('fund')}
+        >
+          fund
         </button>
         <button
           className={view === 'about' ? 'active' : ''}

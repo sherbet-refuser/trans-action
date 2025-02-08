@@ -1,13 +1,14 @@
 {
   "cSpell.words": [
     "geoip",
+    "nonbinary",
     "noopener",
     "noreferrer",
     "Recordkeeping",
     "redactions",
     "supermajority",
     "venmo"
-],
+  ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
