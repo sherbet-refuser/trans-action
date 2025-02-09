@@ -100,7 +100,7 @@ function Transactions({ latestData }) {
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
       </div>
       <div className="total-contributed" style={{ marginTop: '10px' }}>
-        <strong>total contributed:</strong> ${totalContributed.toFixed(2)}
+        <strong style={{ color: '#F5A9B8' }}>total contributions:</strong> ${totalContributed.toFixed(2)}
       </div>
     </div>
   );

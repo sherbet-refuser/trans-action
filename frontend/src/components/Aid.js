@@ -80,7 +80,7 @@ function CurrentRequests({ latestRequests }) {
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
       </div>
       <div className="total-paid" style={{ marginTop: '10px' }}>
-        <strong>total paid:</strong> ${totalPaid.toFixed(2)}
+        <strong style={{ color: '#5BCEFA' }}>total paid:</strong> ${totalPaid.toFixed(2)}
       </div>
     </div>
   );
