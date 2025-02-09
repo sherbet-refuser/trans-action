@@ -27,7 +27,7 @@ function CurrentRequests({ latestRequests }) {
     return (
       <div>
         <h2>requests for aid</h2>
-        <div className="loading-text">Loading requests...</div>
+        <div className="loading-text">loading requests...</div>
       </div>
     );
   }

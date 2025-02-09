@@ -46,7 +46,15 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Navigate replace to="/aid" />} />
-          <Route path="/aid" element={<Aid latestRequests={latestData ? latestData.requests : []} refreshData={refreshLatestData} />} />
+          <Route
+            path="/aid"
+            element={
+              <Aid
+                latestRequests={latestData ? latestData.requests : null}
+                refreshData={refreshLatestData}
+              />
+            }
+          />
           <Route path="/fund" element={<Fund latestData={latestData} />} />
           <Route path="/about" element={<About />} />
         </Routes>
