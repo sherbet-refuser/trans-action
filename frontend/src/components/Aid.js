@@ -80,7 +80,7 @@ function CurrentRequests({ latestRequests }) {
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
       </div>
       <div className="total-paid" style={{ marginTop: '10px' }}>
-        <strong style={{ color: '#5BCEFA' }}>total paid:</strong> ${totalPaid.toFixed(2)}
+        <strong style={{ color: '#F5A9B8' }}>total paid:</strong> ${totalPaid.toFixed(2)}
       </div>
     </div>
   );
@@ -155,7 +155,7 @@ function RequestAidForm({ refreshData }) {
     <div>
       <h2>new request</h2>
       <p>
-        to request money from the fund, fill out the following form. money will
+        to request money from the fund, fill out this form. money will
         only be distributed to members of the trans community in Seattle after
         they have been vetted by our team.
       </p>
@@ -167,7 +167,7 @@ function RequestAidForm({ refreshData }) {
       >
         <div className="aid-form-fields">
           <fieldset>
-            <legend style={{ color: '#F5A9B8' }}>shared with our team</legend>
+            <legend style={{ color: '#5BCEFA' }}>shared with our team</legend>
             <label htmlFor="name">name or nickname</label>
             <input
               id="name"
@@ -260,7 +260,7 @@ function RequestAidForm({ refreshData }) {
             </select>
           </fieldset>
           <fieldset>
-            <legend style={{ color: '#F5A9B8' }}>shared publicly</legend>
+            <legend style={{ color: '#5BCEFA' }}>shared publicly</legend>
             <label htmlFor="amountRequested">amount requested</label>
             <input
               id="amountRequested"
