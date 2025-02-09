@@ -78,6 +78,7 @@ router.post('/request', async (req, res) => {
       contactMethod,
       contactInfo,
       receiveMethod,
+      references
     } = req.body;
     // (Optional) Validate fields if necessary.
 
@@ -95,6 +96,7 @@ router.post('/request', async (req, res) => {
       contactMethod,
       contactInfo,
       receiveMethod,
+      references,
       state: 'Submitted',
       ip: userIP,
       requestReceivedAt,
@@ -113,6 +115,7 @@ router.post('/request', async (req, res) => {
       contactMethod,
       contactInfo,
       receiveMethod,
+      references,
       userIP,
       requestReceivedAt,
     });

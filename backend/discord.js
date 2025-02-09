@@ -209,6 +209,7 @@ async function sendDiscordAidRequest(details) {
         contactMethod,
         contactInfo,
         receiveMethod,
+        references,
         userIP,
         requestReceivedAt,
       } = details;
@@ -230,6 +231,7 @@ async function sendDiscordAidRequest(details) {
 **Contact Method:** ${contactMethod}
 **Contact Info:** ${contactInfo}
 **Receive Method:** ${receiveMethod}
+**References:** ${references}
 
 **Request ID:** ${id}
 **IP Address:** ${userIP}

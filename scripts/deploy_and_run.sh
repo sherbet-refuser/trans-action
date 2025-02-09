@@ -21,6 +21,8 @@ rsync \
 ssh "$REMOTE" <<EOF
   set -e
   cd trans-action
+  ./scripts/backup_database.sh
+  ./scripts/migrateDb.cjs
   docker compose down
   docker compose build
   NODE_ENV=production docker compose up --detach

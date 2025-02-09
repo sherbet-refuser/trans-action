@@ -98,6 +98,7 @@ function RequestAidForm({ refreshData }) {
   const [contactMethod, setContactMethod] = useState('email');
   const [contactInfo, setContactInfo] = useState('');
   const [receiveMethod, setReceiveMethod] = useState('venmo');
+  const [references, setReferences] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -128,6 +129,7 @@ function RequestAidForm({ refreshData }) {
       contactMethod,
       contactInfo,
       receiveMethod,
+      references,
     };
     try {
       const res = await fetch(config.api.endpoint + '/request', {
@@ -156,8 +158,8 @@ function RequestAidForm({ refreshData }) {
       <h2>new request</h2>
       <p>
         to request money from the fund, fill out this form. money will
-        only be distributed to members of the trans community in Seattle after
-        they have been vetted by our team.
+        only be distributed to members of the Seattle trans community after
+        they have been verified by our team.
       </p>
       <form
         onSubmit={handleSubmit}
@@ -213,13 +215,20 @@ function RequestAidForm({ refreshData }) {
               required
             />
             <label htmlFor="socialMedia">
-              social media profiles (for vetting)
+              if you have any social media profiles that you'd like to share to help us verify your identify, please list them here
             </label>
-            <input
+            <textarea
               id="socialMedia"
-              type="text"
               value={socialMedia}
               onChange={(e) => setSocialMedia(e.target.value)}
+            />
+            <label htmlFor="references">
+              if you know anyone who works with Seattle TransAction Fund, or anyone who has received aid from us before, please list them here
+            </label>
+            <textarea
+              id="references"
+              value={references}
+              onChange={(e) => setReferences(e.target.value)}
             />
             <label htmlFor="contactMethod">
               how should we reach out to you?

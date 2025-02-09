@@ -14,6 +14,7 @@ module.exports = (sequelize) => {
       contactMethod: { type: DataTypes.STRING, allowNull: false },
       contactInfo: { type: DataTypes.STRING, allowNull: false },
       receiveMethod: { type: DataTypes.STRING, allowNull: false },
+      references: { type: DataTypes.TEXT, allowNull: true },
       state: { type: DataTypes.STRING, defaultValue: 'Submitted' },
       ip: { type: DataTypes.STRING, allowNull: false },
       requestReceivedAt: {
