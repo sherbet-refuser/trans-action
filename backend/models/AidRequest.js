@@ -24,6 +24,7 @@ module.exports = (sequelize) => {
     },
     {
       freezeTableName: true,
+      tableName: 'AidRequest' // force the exact table name to be used
     }
   );
   return AidRequest;

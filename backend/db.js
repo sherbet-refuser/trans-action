@@ -1,9 +1,10 @@
 const { Sequelize } = require('sequelize');
+const path = require('path');
 const config = require('./config');
 
 const sequelize = new Sequelize({
   dialect: config.db.dialect,
-  storage: config.db.storage,
+  storage: path.resolve(__dirname, config.db.storage),
   logging: false,
 });
 

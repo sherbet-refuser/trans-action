@@ -16,3 +16,14 @@ rsync \
     --delete-after \
     ./ \
     "$REMOTE:~/trans-action"
+
+# Connect to remote host, take down running services and then run docker-compose.
+ssh "$REMOTE" <<EOF
+  set -e
+  cd trans-action
+  docker compose down
+  docker compose build
+  NODE_ENV=production docker compose up --detach
+  sleep 5
+  docker compose top
+EOF
