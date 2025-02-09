@@ -31,10 +31,12 @@ function CurrentRequests({ latestRequests }) {
       </div>
     );
   }
-  // Sort requests descending by received date
   const sortedRequests = [...latestRequests].sort(
     (a, b) => new Date(b.requestReceivedAt) - new Date(a.requestReceivedAt)
   );
+  const totalPaid = sortedRequests
+    .filter(req => req.state === 'Paid')
+    .reduce((sum, req) => sum + parseFloat(req.amountRequested || 0), 0);
   const limit = 12;
   const totalPages = Math.ceil(sortedRequests.length / limit);
   const start = (page - 1) * limit;
@@ -76,6 +78,9 @@ function CurrentRequests({ latestRequests }) {
           </button>
         )}
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
+      </div>
+      <div className="total-paid" style={{ marginTop: '10px' }}>
+        <strong>total paid:</strong> ${totalPaid.toFixed(2)}
       </div>
     </div>
   );
