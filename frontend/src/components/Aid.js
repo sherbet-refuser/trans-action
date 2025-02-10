@@ -187,7 +187,7 @@ function RequestAidForm({ refreshData }) {
               required
             />
             <label htmlFor="isTrans">
-              do you identify as trans or nonbinary?
+              do you identify as trans?
             </label>
             <select
               id="isTrans"
