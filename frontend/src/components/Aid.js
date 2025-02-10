@@ -215,7 +215,7 @@ function RequestAidForm({ refreshData }) {
               required
             />
             <label htmlFor="socialMedia">
-              if you have any social media profiles that you'd like to share to help us verify your identify, please list them here
+              if you have any social media profiles that you'd like to share to help us verify your identity, please list them here
             </label>
             <textarea
               id="socialMedia"
