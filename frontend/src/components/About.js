@@ -18,9 +18,9 @@ function About() {
         <h3>Links</h3>
         <ul>
           <li>
-            Organization Charter (Proposed):&nbsp;
+            Redistribution Council Charter:&nbsp;
             <a
-              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md"
+              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -28,13 +28,13 @@ function About() {
             </a>
           </li>
           <li>
-            Anti-Money Laundering Policies (Proposed):&nbsp;
+            Collective Actions & Agreements:&nbsp;
             <a
-              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/aml.md"
+              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/agreements.md#collective-actions--agreements"
               target="_blank"
               rel="noopener noreferrer"
             >
-              aml.md
+              agreements.md
             </a>
           </li>
           <li>
