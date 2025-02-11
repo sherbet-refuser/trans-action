@@ -99,6 +99,12 @@ The founding member who is registered as the responsible party with the Internal
 3. Open and manage required financial and commercial accounts
 4. Perform other duties necessary for organizational operations
 
-Upon ratification of this Charter and onboarding of initial Council members, all organizational assets, accounts, and infrastructure established during this period shall transfer to the shared control of the Council as described in Article III.
+Upon ratification of this Charter and onboarding of initial Council members:
+1. All organizational assets, accounts, and infrastructure established during this period shall transfer to the shared control of the Council as described in Article III
+2. The pre-ratification steward shall:
+   - Become a Council member
+   - Be appointed as one of the two System Administrators
+   - Be appointed as one of the two Treasurers
+   These appointments are subject to the same removal and replacement procedures as any other role holder.
 
 This Charter shall take effect upon ratification by an initial supermajority of the founding Council members. Amendments to this Charter shall be enacted through the procedures outlined in Article II.
