@@ -78,7 +78,7 @@ router.post('/request', async (req, res) => {
       contactMethod,
       contactInfo,
       receiveMethod,
-      references
+      references,
     } = req.body;
     // (Optional) Validate fields if necessary.
 

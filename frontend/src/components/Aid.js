@@ -35,7 +35,7 @@ function CurrentRequests({ latestRequests }) {
     (a, b) => new Date(b.requestReceivedAt) - new Date(a.requestReceivedAt)
   );
   const totalPaid = sortedRequests
-    .filter(req => req.state === 'Paid')
+    .filter((req) => req.state === 'Paid')
     .reduce((sum, req) => sum + parseFloat(req.amountRequested || 0), 0);
   const limit = 12;
   const totalPages = Math.ceil(sortedRequests.length / limit);
@@ -80,7 +80,8 @@ function CurrentRequests({ latestRequests }) {
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
       </div>
       <div className="total-paid" style={{ marginTop: '10px' }}>
-        <strong style={{ color: '#F5A9B8' }}>total paid:</strong> ${totalPaid.toFixed(2)}
+        <strong style={{ color: '#F5A9B8' }}>total paid:</strong> $
+        {totalPaid.toFixed(2)}
       </div>
     </div>
   );
@@ -157,9 +158,9 @@ function RequestAidForm({ refreshData }) {
     <div>
       <h2>new request</h2>
       <p>
-        to request money from the fund, fill out this form. money will
-        only be distributed to members of the Seattle trans community after
-        they have been verified by our team.
+        to request money from the fund, fill out this form. money will only be
+        distributed to members of the Seattle trans community after they have
+        been verified by our team.
       </p>
       <form
         onSubmit={handleSubmit}
@@ -186,9 +187,7 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setPronouns(e.target.value)}
               required
             />
-            <label htmlFor="isTrans">
-              do you identify as trans?
-            </label>
+            <label htmlFor="isTrans">do you identify as trans?</label>
             <select
               id="isTrans"
               value={isTrans}
@@ -215,7 +214,8 @@ function RequestAidForm({ refreshData }) {
               required
             />
             <label htmlFor="socialMedia">
-              if you have any social media profiles that you'd like to share to help us verify your identity, please list them here
+              if you have any social media profiles that you'd like to share to
+              help us verify your identity, please list them here
             </label>
             <textarea
               id="socialMedia"
@@ -223,7 +223,8 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setSocialMedia(e.target.value)}
             />
             <label htmlFor="references">
-              if you know anyone who works with Seattle TransAction Fund, or anyone who has received aid from us before, please list them here
+              if you know anyone who works with Seattle TransAction Fund, or
+              anyone who has received aid from us before, please list them here
             </label>
             <textarea
               id="references"
@@ -295,7 +296,14 @@ function RequestAidForm({ refreshData }) {
         <p style={{ marginTop: '1rem' }}>
           once you submit, our team will begin reviewing your request. if you
           don't hear back within one week, please reach out to the email address
-          or Discord channel on the <Link to="/about" style={{ textDecoration: 'underline', color: 'inherit' }}>about</Link> page.
+          or Discord channel on the{' '}
+          <Link
+            to="/about"
+            style={{ textDecoration: 'underline', color: 'inherit' }}
+          >
+            about
+          </Link>{' '}
+          page.
         </p>
         <button type="submit" disabled={!config.requestAidEnabled}>
           {config.requestAidEnabled ? 'request aid' : 'requests disabled'}

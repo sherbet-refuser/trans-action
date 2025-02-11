@@ -54,8 +54,8 @@ function Transactions({ latestData }) {
     return dateB - dateA;
   });
   const totalContributed = combined
-    .filter(item => !item.timestamp)
-    .reduce((sum, item) => sum + (item.amount / 100), 0);
+    .filter((item) => !item.timestamp)
+    .reduce((sum, item) => sum + item.amount / 100, 0);
   const totalPages = Math.ceil(combined.length / limit);
   const start = (page - 1) * limit;
   const paginated = combined.slice(start, start + limit);
@@ -100,7 +100,8 @@ function Transactions({ latestData }) {
         {hasNext && <button onClick={() => setPage((p) => p + 1)}>next</button>}
       </div>
       <div className="total-contributed" style={{ marginTop: '10px' }}>
-        <strong style={{ color: '#F5A9B8' }}>total contributions:</strong> ${totalContributed.toFixed(2)}
+        <strong style={{ color: '#F5A9B8' }}>total contributions:</strong> $
+        {totalContributed.toFixed(2)}
       </div>
     </div>
   );

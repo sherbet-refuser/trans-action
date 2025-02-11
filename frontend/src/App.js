@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from 'react-router-dom';
 import axios from 'axios';
 import Fund from './components/Fund';
 import About from './components/About';
@@ -40,9 +46,30 @@ function App() {
           </h1>
         </header>
         <nav>
-          <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} to="/aid">aid</NavLink>
-          <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} to="/fund">fund</NavLink>
-          <NavLink className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} to="/about">about</NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              'nav-link' + (isActive ? ' active' : '')
+            }
+            to="/aid"
+          >
+            aid
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              'nav-link' + (isActive ? ' active' : '')
+            }
+            to="/fund"
+          >
+            fund
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              'nav-link' + (isActive ? ' active' : '')
+            }
+            to="/about"
+          >
+            about
+          </NavLink>
         </nav>
         <Routes>
           <Route path="/" element={<Navigate replace to="/aid" />} />
