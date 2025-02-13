@@ -2,12 +2,15 @@
   "cSpell.words": [
     "anonymization",
     "geoip",
+    "lastmod",
     "nonbinary",
     "noopener",
     "noreferrer",
+    "pandoc",
     "Recordkeeping",
     "redactions",
     "supermajority",
+    "urlset",
     "venmo"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
