@@ -73,7 +73,6 @@ All fund balances and transactions shall be recorded and made publicly accessibl
 1. Regular publishing of anonymized transaction records
 2. Public access to fund balances
 3. Clear documentation of anonymization procedures
-4. Members may request an exemption from public listing due to safety concerns, pending Council approval
 
 ---
 
@@ -95,7 +94,7 @@ All fund balances and transactions shall be recorded and made publicly accessibl
 The Council shall maintain public biographical information for all voting members on the organization's website. Each biography must include:
 
 - A recent photograph
-- Name or nickname (legal names not required)
+- First name or nickname (legal names not required)
 - Pronouns
 - A brief one- to two-line self-written biography
 
@@ -110,6 +109,8 @@ The Council shall maintain public biographical information for all voting member
 1. Each Council member shall provide their biographical information within one week of joining
 2. Members may update their information at any time
 3. Information will be removed within 24 hours of a member's departure from the Council
+4. Members may request an exemption from public listing due to safety concerns, pending Council approval
+
 
 ---
 
