@@ -18,7 +18,7 @@ function About() {
         <h3>Links</h3>
         <ul>
           <li>
-            Redistribution Council Charter:&nbsp;
+            Organization Bylaws:&nbsp;
             <a
               href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
               target="_blank"
@@ -28,7 +28,7 @@ function About() {
             </a>
           </li>
           <li>
-            Collective Actions & Agreements:&nbsp;
+            Policies:&nbsp;
             <a
               href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/agreements.md#collective-actions--agreements"
               target="_blank"
