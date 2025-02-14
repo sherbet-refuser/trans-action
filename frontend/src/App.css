@@ -269,3 +269,66 @@ button[type="submit"]:focus {
 .failed-verification, .rejected{
     opacity: 0.6;
 }
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.team-member img {
+    max-width: 160px;
+    border-radius: 4px;
+}
+
+.team-member .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.team-member p {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.links {
+    margin-top: 1rem;
+}
+
+.links a {
+    color: #ffb3d9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #ff90c2;
+}
+
+.links p {
+    margin-bottom: 0.5rem;
+}
+
+.contacts {
+    margin-top: 1rem;
+}
+
+.contacts a {
+    color: #ffb3d9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+    color: #ff90c2;
+}
+
+.contacts p {
+    margin-bottom: 0.5rem;
+}

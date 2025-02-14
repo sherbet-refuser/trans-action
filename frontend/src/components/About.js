@@ -15,63 +15,80 @@ function About() {
           not tax-deductible.
         </p>
 
-        <h3>Links</h3>
-        <ul>
-          <li>
-            Organization Bylaws:&nbsp;
-            <a
-              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              charter.md
-            </a>
-          </li>
-          <li>
-            Policies:&nbsp;
-            <a
-              href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/agreements.md#collective-actions--agreements"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              agreements.md
-            </a>
-          </li>
-          <li>
-            Website/Server Source Code:&nbsp;
-            <a
-              href="https://github.com/sherbet-refuser/trans-action"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Repo
-            </a>
-          </li>
-        </ul>
+        <div className="team-section">
+          <h3>Team</h3>
+          <ul className="team-list">
+            <li className="team-member">
+              <img src="/kay-160.jpeg" alt="selfie of kay with blue hair smiling while riding the bus" />
+              <div className="info">
+                <strong>kay</strong> they/them
+                <p>say hi the next time you see me skateboarding around downtown or cap hill!</p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-        <h3>Contact</h3>
-        <ul>
-          <li>
-            Website Admin:&nbsp;
-            <a
-              href="mailto:sherbet-refuser0j@icloud.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              sherbet-refuser0j@icloud.com
-            </a>
-          </li>
-          <li>
-            Discord Support Channel:&nbsp;
-            <a
-              href="https://discord.gg/Pm3XEhfYsC"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://discord.gg/Pm3XEhfYsC
-            </a>
-          </li>
-        </ul>
+        <div className="links">
+          <h3>Links</h3>
+          <ul>
+            <li>
+              Organization Bylaws:&nbsp;
+              <a
+                href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                charter.md
+              </a>
+            </li>
+            <li>
+              Policies:&nbsp;
+              <a
+                href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/agreements.md#collective-actions--agreements"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                agreements.md
+              </a>
+            </li>
+            <li>
+              Website/Server Source Code:&nbsp;
+              <a
+                href="https://github.com/sherbet-refuser/trans-action"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Repo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="contacts">
+          <h3>Contact</h3>
+          <ul>
+            <li>
+              Website Admin:&nbsp;
+              <a
+                href="mailto:sherbet-refuser0j@icloud.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                sherbet-refuser0j@icloud.com
+              </a>
+            </li>
+            <li>
+              Discord Support Channel:&nbsp;
+              <a
+                href="https://discord.gg/Pm3XEhfYsC"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://discord.gg/Pm3XEhfYsC
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
