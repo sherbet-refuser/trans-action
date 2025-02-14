@@ -17,13 +17,13 @@ The TransAction Redistribution Council is established to equitably manage and di
    - Current residential address
    - Contact information
 
-    These records shall be stored securely and accessed only as required for legal and operational purposes.
+   These records shall be stored securely and accessed only as required for legal and operational purposes.
 
 3. **Addition of Members**: A new Council member may be added via supermajority consent.
 4. **Removal of Members**: A Council member may be removed via majority consent.
 5. **Member Replacement**: A Council member may be replaced with a specific proposed new member via a single vote requiring supermajority consent. The member being replaced retains their right to vote on their replacement. This provision enables graceful transitions when members need to step down but wish to ensure continued Council operations.
 6. **Resignation**: A Council member may resign at any time by providing written notice to the Council. The resignation is effective immediately upon receipt by any other Council member.
-7. **Non-Hierarchical Membership**: All members of the Council hold equal status, with no hierarchical authority structure.
+7. **Non-Hierarchical Membership**: All members of the Council hold equal status, with no hierarchical authority structure, except where Operational Roles specified in Article II grant additional authorizations.
 8. **Term Recommendations**:
    - Members are encouraged to serve terms of approximately 6 months
    - At term end, members should consider transitioning their role to new community members through the replacement process
@@ -100,11 +100,14 @@ The founding member who is registered as the responsible party with the Internal
 4. Perform other duties necessary for organizational operations
 
 Upon ratification of this Charter and onboarding of initial Council members:
+
 1. All organizational assets, accounts, and infrastructure established during this period shall transfer to the shared control of the Council as described in Article III
 2. The pre-ratification steward shall:
+
    - Become a Council member
    - Be appointed as one of the two System Administrators
    - Be appointed as one of the two Treasurers
-   These appointments are subject to the same removal and replacement procedures as any other role holder.
+
+   These appointments will be subject to the same removal and replacement procedures as any other role holder.
 
 This Charter shall take effect upon ratification by an initial supermajority of the founding Council members. Amendments to this Charter shall be enacted through the procedures outlined in Article II.

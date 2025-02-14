@@ -111,7 +111,6 @@ The Council shall maintain public biographical information for all voting member
 3. Information will be removed within 24 hours of a member's departure from the Council
 4. Members may request an exemption from public listing due to safety concerns, pending Council approval
 
-
 ---
 
 ## Aid Request Review Process
@@ -172,6 +171,7 @@ While the Council maintains ultimate discretion in evaluating aid requests, the 
 **Resolution Date**: TBD
 
 ### Voting Record
+
 - In Favor: TBD
 - Against: TBD
 - Abstained: TBD
@@ -182,11 +182,13 @@ While the Council maintains ultimate discretion in evaluating aid requests, the 
 To prevent potential misuse of our aid distribution system:
 
 1. **Transaction Monitoring**
+
    - Large or unusual transactions require additional review
    - Multiple requests from the same recipient within short periods trigger review
    - Suspicious patterns are flagged for Council discussion
 
 2. **Documentation Requirements**
+
    - Basic identifying information required from recipients
    - Records maintained securely and confidentially
    - Transaction history tracked for pattern analysis

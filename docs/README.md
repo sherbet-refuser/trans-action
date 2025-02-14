@@ -1,6 +1,6 @@
 # docs
 
-## Generated Printable PDFs
+## Generating Printable PDFs
 
 ```sh
 pandoc charter.md -o charter.pdf
