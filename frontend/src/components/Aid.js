@@ -127,7 +127,10 @@ function RequestAidForm({ refreshData }) {
       alert('Please fill out all required fields.');
       return;
     }
-    if ((receiveMethod === 'venmo' || receiveMethod === 'cash app') && !receiveDetails) {
+    if (
+      (receiveMethod === 'venmo' || receiveMethod === 'cash app') &&
+      !receiveDetails
+    ) {
       alert('Please provide your username for Venmo or Cash app.');
       return;
     }

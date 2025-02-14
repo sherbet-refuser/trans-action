@@ -147,7 +147,7 @@ async function updateState(message) {
   try {
     await message.edit(newContent);
     console.log(`Message content updated for Request ID ${requestId}`);
-    if (oldState == "Verified" && newState === 'Approved') {
+    if (oldState == 'Verified' && newState === 'Approved') {
       await message.channel.send(
         `<@&${config.discord.treasurerRoleId}> please process this request for payment.`
       );
@@ -216,17 +216,23 @@ async function reattachCollectors(channel) {
     for (const thread of threadsData.threads.values()) {
       let messages = await thread.messages.fetch();
       console.log(`Found ${messages.size} messages in thread '${thread.name}'`);
-      messages = messages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
+      messages = messages.sort(
+        (a, b) => a.createdTimestamp - b.createdTimestamp
+      );
       const firstMessage = messages.first();
       if (firstMessage.author.id === discordClient.user.id) {
         const match = firstMessage.content.match(REQUEST_ID_REGEX);
         if (match) {
           const requestId = match[2].trim();
-          console.log(`Attaching collector to thread '${thread.name}' with request id ${requestId}`);
+          console.log(
+            `Attaching collector to thread '${thread.name}' with request id ${requestId}`
+          );
           attachCollector(firstMessage, thread.name);
           reattachedCount++;
         } else {
-          console.error(`Request ID not found in message for thread '${thread.name}'`);
+          console.error(
+            `Request ID not found in message for thread '${thread.name}'`
+          );
         }
       }
     }
