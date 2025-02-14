@@ -34,7 +34,7 @@ async function verifyDiscordPermissions(channel) {
 
 const submittedNextStep = 'React with 👀 to start vetting this request.';
 const vettingNextStep =
-  'React with ✅ to verify this request, or ❌ to mark it as failed verification.';
+  'Leave a comment documenting the vetting steps taken, then react with ✅ to verify this request, or ❌ to mark it as failed verification.';
 const inReviewNextStep = `React with ${config.discord.majorityVote} 👍 to approve this request, or ${config.discord.majorityVote} 👎 to reject it.`;
 const approvedNextStep = 'React with 💵 to mark this request as paid.';
 
@@ -239,7 +239,7 @@ async function sendDiscordAidRequest(details) {
 **Timestamp:** ${requestReceivedAt.toLocaleString()}
 
 **State**: Submitted
-**Next Step**: ${submittedNextStep}.
+**Next Step**: ${submittedNextStep}
 `);
       // Attach reaction collector for the new message.
       attachCollector(sentMsg, thread.name);
