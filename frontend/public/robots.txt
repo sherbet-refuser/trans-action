@@ -1,54 +1,16 @@
 # allow major search engines
-user-agent: googlebot
-disallow:
+User-agent: Googlebot
+Disallow:
 
-user-agent: bingbot
-disallow:
+User-agent: Bingbot
+Disallow:
 
-user-agent: duckduckbot
-disallow:
+User-agent: DuckDuckBot
+Disallow:
 
-user-agent: applebot
-disallow:
-
-# block ai crawlers
-user-agent: gptbot
-disallow: /
-
-user-agent: claude-web
-disallow: /
-
-user-agent: anthropic-ai
-disallow: /
-
-user-agent: ccbot
-disallow: /
-
-user-agent: perplexitybot
-disallow: /
-
-user-agent: openai
-disallow: /
-
-user-agent: google-extended
-disallow: /
-
-user-agent: chatgpt-user
-disallow: /
-
-# block social media crawlers
-user-agent: facebookbot
-disallow: /
-
-user-agent: meta-externalagent
-disallow: /
-
-user-agent: twitterbot
-disallow: /
-
-user-agent: bytedancespider
-disallow: /
+User-agent: Applebot
+Disallow:
 
 # block all other bots
-user-agent: *
-disallow: /
+User-agent: *
+Disallow: /
