@@ -17,6 +17,7 @@ module.exports = (sequelize) => {
       references: { type: DataTypes.TEXT, allowNull: true },
       state: { type: DataTypes.STRING, defaultValue: 'Submitted' },
       ip: { type: DataTypes.STRING, allowNull: false },
+      location: { type: DataTypes.STRING, allowNull: true },
       requestReceivedAt: {
         type: DataTypes.DATE,
         allowNull: false,

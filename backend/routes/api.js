@@ -9,6 +9,7 @@ const {
   AidRequest,
 } = require('../db');
 const { sendDiscordAidRequest } = require('../discord');
+const { getLocation } = require('../utils/location');
 
 // GET /api/v1/latest – returns the latest data
 router.get('/latest', async (req, res) => {
@@ -84,6 +85,7 @@ router.post('/request', async (req, res) => {
 
     const userIP = req.ip;
     const requestReceivedAt = new Date();
+    const location = getLocation(userIP);
     const newRequest = await AidRequest.create({
       name,
       isTrans,
@@ -99,26 +101,11 @@ router.post('/request', async (req, res) => {
       references,
       state: 'Submitted',
       ip: userIP,
+      location,
       requestReceivedAt,
     });
 
-    sendDiscordAidRequest({
-      id: newRequest.id,
-      name,
-      isTrans,
-      pronouns,
-      amountRequested,
-      category,
-      description,
-      neighborhood,
-      socialMedia,
-      contactMethod,
-      contactInfo,
-      receiveMethod,
-      references,
-      userIP,
-      requestReceivedAt,
-    });
+    sendDiscordAidRequest(newRequest);
 
     res.sendStatus(200);
   } catch (error) {

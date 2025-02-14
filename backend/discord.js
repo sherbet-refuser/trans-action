@@ -1,7 +1,9 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const config = require('./config');
 const { AidRequest } = require('./db');
-const geoip = require('geoip-lite');
+
+// Global regex for extracting Request ID
+const REQUEST_ID_REGEX = /(\*\*Request ID:\*\*\s*)(.*?)(?=\n|$)/;
 
 const discordClient = new Client({
   intents: [
@@ -32,90 +34,150 @@ async function verifyDiscordPermissions(channel) {
   }
 }
 
-const submittedNextStep = 'React with 👀 to start vetting this request.';
-const vettingNextStep =
-  'Leave a comment documenting the vetting steps taken, then react with ✅ to verify this request, or ❌ to mark it as failed verification.';
-const inReviewNextStep = `React with ${config.discord.majorityVote} 👍 to approve this request, or ${config.discord.majorityVote} 👎 to reject it.`;
-const approvedNextStep = 'React with 💵 to mark this request as paid.';
+function buildMessageContent(request) {
+  let nextActionMsg;
+  switch (request.state) {
+    case 'Submitted':
+      nextActionMsg = 'React with 👀 to start vetting this request.';
+      break;
+    case 'Vetting':
+      nextActionMsg =
+        'Leave a comment documenting the vetting steps taken, then react with ✅ to verify this request, or ❌ to mark it as failed verification.';
+      break;
+    case 'In Review':
+      nextActionMsg = `React with ${config.discord.majorityVote} 👍 to approve this request, or ${config.discord.majorityVote} 👎 to reject it.`;
+      break;
+    case 'Approved':
+      nextActionMsg = 'React with 💵 to mark this request as paid.';
+      break;
+    default:
+      nextActionMsg = 'None';
+  }
+  return `
+**Name:** ${request.name}
+**Trans or Nonbinary:** ${request.isTrans}
+**Pronouns:** ${request.pronouns}
+**Amount Requested:** $${request.amountRequested}
+**Category:** ${request.category}
+**Description:** ${request.description}
+**Neighborhood:** ${request.neighborhood}
+**Social Media:** ${request.socialMedia || ''}
+**Contact Method:** ${request.contactMethod}
+**Contact Info:** ${request.contactInfo}
+**Receive Method:** ${request.receiveMethod}
+**References:** ${request.references || ''}
 
-function updateState(message) {
-  const stateRegex = /(\*\*State\*\*:\s*)(.*?)(?=\n|$)/;
-  const currentStateMatch = message.content.match(stateRegex);
-  const currentState = currentStateMatch ? currentStateMatch[2] : 'Submitted';
+**Request ID:** ${request.id}
+**IP Address:** ${request.ip}
+**Approximate Location:** ${request.location || ''}
+**Timestamp:** ${new Date(request.requestReceivedAt).toLocaleString()}
 
-  const count = (emoji) => message.reactions.cache.get(emoji)?.count || 0;
+**State**: ${request.state}
+**Next Step**: ${nextActionMsg}
+`;
+}
 
-  const majorityVote = config.discord.majorityVote;
-  let newState, nextActionMsg;
-  if (count('👀') < 1) {
-    newState = 'Submitted';
-    nextActionMsg = submittedNextStep;
-  } else if (count('✅') < 1 && count('❌') < 1) {
-    newState = 'Vetting';
-    nextActionMsg = vettingNextStep;
-  } else if (count('❌') >= 1) {
-    newState = 'Failed Verification';
-    nextActionMsg = '';
-  } else if (
-    count('✅') >= 1 &&
-    count('👍') < majorityVote &&
-    count('👎') < majorityVote
-  ) {
-    newState = 'In Review';
-    nextActionMsg = inReviewNextStep;
-  } else if (count('👎') >= majorityVote) {
-    newState = 'Rejected';
-    nextActionMsg = '';
-  } else if (count('👍') >= majorityVote && count('💵') < 1) {
-    newState = 'Approved';
-    nextActionMsg = approvedNextStep;
-  } else {
-    newState = 'Paid';
-    nextActionMsg = '';
+async function updateState(message) {
+  const idMatch = message.content.match(REQUEST_ID_REGEX);
+  if (!idMatch) {
+    console.error('Request ID not found in message.');
+    return;
+  }
+  const requestId = idMatch[2].trim();
+
+  // Load corresponding AidRequest record from the database
+  let requestRecord;
+  try {
+    requestRecord = await AidRequest.findOne({ where: { id: requestId } });
+    if (!requestRecord) {
+      console.error(`AidRequest record not found for Request ID ${requestId}`);
+      return;
+    }
+  } catch (err) {
+    console.error('Error loading AidRequest record:', err);
+    return;
   }
 
-  if (newState !== currentState) {
-    console.log(`Updating message state from ${currentState} to ${newState}`);
-    const nextStepRegex = /(\*\*Next Step\*\*:\s*)(.*?)(?=\n|$)/;
-    const newContent = message.content
-      .replace(stateRegex, `**State**: ${newState}`)
-      .replace(nextStepRegex, `**Next Step**: ${nextActionMsg || 'None'}`);
-    message
-      .edit(newContent)
-      .then(() => {
-        console.log(
-          `Updated message state from ${currentState} to ${newState}`
-        );
-        // If state is "Approved", reply to the thread, pinging the @treasurer role.
-        if (newState === 'Approved') {
-          message.channel.send(
-            `<@&${config.discord.treasurerRoleId}> please process this request for payment.`
-          );
-        }
-      })
-      .catch((err) => console.error('Failed to update message state:', err));
+  // Determine next state based on reaction counts
+  const count = (emoji) => message.reactions.cache.get(emoji)?.count || 0;
+  const vettingCond = count('👀') >= 1;
+  const failedVerificationCond = count('❌') >= 1;
+  const inReviewCond = count('✅') >= 1;
+  const rejectedCond = count('👎') >= config.discord.majorityVote;
+  const approvedCond = count('👍') >= config.discord.majorityVote;
+  const paidCond = count('💵') >= 1;
+  const refreshCond = count('📝') >= 1;
 
-    // Parse the Request ID and update the corresponding AidRequest record
-    const idRegex = /(\*\*Request ID:\*\*\s*)(.*?)(?=\n|$)/;
-    const idMatch = message.content.match(idRegex);
-    if (idMatch) {
-      const requestId = idMatch[2].trim();
-      AidRequest.update({ state: newState }, { where: { id: requestId } })
-        .then(() =>
-          console.log(
-            `AidRequest record updated for Request ID ${requestId} to state ${newState}`
-          )
-        )
-        .catch((err) =>
-          console.error('Failed to update AidRequest record:', err)
-        );
+  let newState;
+  if (!vettingCond) {
+    newState = 'Submitted';
+  } else if (!failedVerificationCond && !inReviewCond) {
+    newState = 'Vetting';
+  } else if (failedVerificationCond) {
+    newState = 'Failed Verification';
+  } else if (!rejectedCond && !approvedCond) {
+    newState = 'In Review';
+  } else if (rejectedCond) {
+    newState = 'Rejected';
+  } else if (!paidCond) {
+    newState = 'Approved';
+  } else {
+    newState = 'Paid';
+  }
+
+  // Exit if state hasn't changed
+  const oldState = requestRecord.state;
+  if (!refreshCond && newState === oldState) return;
+
+  // Update the record with the new state
+  try {
+    requestRecord.state = newState;
+    await requestRecord.save();
+    console.log(
+      `Updated AidRequest record for Request ID ${requestId} to state ${newState}`
+    );
+  } catch (err) {
+    console.error('Failed to update AidRequest record:', err);
+    return;
+  }
+
+  // Re-render the message using our helper
+  const newContent = buildMessageContent(requestRecord);
+  try {
+    await message.edit(newContent);
+    console.log(`Message content updated for Request ID ${requestId}`);
+    if (oldState == "Verified" && newState === 'Approved') {
+      await message.channel.send(
+        `<@&${config.discord.treasurerRoleId}> please process this request for payment.`
+      );
     }
+  } catch (err) {
+    console.error('Failed to update message content:', err);
+  }
+}
+
+async function sendDiscordAidRequest(request) {
+  try {
+    const channel = await discordClient.channels.fetch(
+      config.discord.aidRequestChannelId
+    );
+    if (channel && channel.isTextBased && channel.isTextBased()) {
+      const thread = await channel.threads.create({
+        name: `Aid Request from ${request.name} for ${request.category}`,
+        autoArchiveDuration: 10080,
+        reason: 'New aid request received',
+      });
+      const sentMsg = await thread.send(buildMessageContent(request));
+      attachCollector(sentMsg, thread.name);
+    }
+  } catch (err) {
+    console.error('Error creating Discord thread:', err);
   }
 }
 
 function attachCollector(message, threadName) {
   const filter = (reaction, user) =>
-    ['👀', '✅', '❌', '👍', '👎', '💵'].includes(reaction.emoji.name);
+    ['👀', '✅', '❌', '👍', '👎', '💵', '📝'].includes(reaction.emoji.name);
   // Enable dispose to capture reaction removals
   const collector = message.createReactionCollector({ filter, dispose: true });
 
@@ -151,12 +213,20 @@ async function reattachCollectors(channel) {
     const threadsData = await channel.threads.fetchActive();
     console.log(`Found ${threadsData.threads.size} active threads.`);
     for (const thread of threadsData.threads.values()) {
-      console.log(`Checking thread: ${thread.name}`);
       let messages = await thread.messages.fetch();
+      console.log(`Found ${messages.size} messages in thread '${thread.name}'`);
+      messages = messages.sort((a, b) => a.createdTimestamp - b.createdTimestamp);
       const firstMessage = messages.first();
       if (firstMessage.author.id === discordClient.user.id) {
-        attachCollector(firstMessage, thread.name);
-        reattachedCount++;
+        const match = firstMessage.content.match(REQUEST_ID_REGEX);
+        if (match) {
+          const requestId = match[2].trim();
+          console.log(`Attaching collector to thread '${thread.name}' with request id ${requestId}`);
+          attachCollector(firstMessage, thread.name);
+          reattachedCount++;
+        } else {
+          console.error(`Request ID not found in message for thread '${thread.name}'`);
+        }
       }
     }
     console.log(`Reattached collectors for ${reattachedCount} threads.`);
@@ -177,76 +247,5 @@ discordClient.once('ready', async () => {
     console.error('Error during startup:', err);
   }
 });
-
-function getLocation(ip) {
-  const geo = geoip.lookup(ip);
-  if (geo) {
-    const { city, region, country } = geo;
-    let locationStr = city ? `${city}` : 'Unknown City';
-    if (region) locationStr += `, ${region}`;
-    locationStr += `, ${country || 'Unknown Country'}`;
-    return locationStr;
-  }
-  return 'Location not available';
-}
-
-async function sendDiscordAidRequest(details) {
-  try {
-    const channel = await discordClient.channels.fetch(
-      config.discord.aidRequestChannelId
-    );
-    if (channel && channel.isTextBased && channel.isTextBased()) {
-      const {
-        id,
-        name,
-        isTrans,
-        pronouns,
-        amountRequested,
-        category,
-        description,
-        neighborhood,
-        socialMedia,
-        contactMethod,
-        contactInfo,
-        receiveMethod,
-        references,
-        userIP,
-        requestReceivedAt,
-      } = details;
-      const location = getLocation(userIP);
-      const thread = await channel.threads.create({
-        name: `Aid Request from ${name} for ${category}`,
-        autoArchiveDuration: 10080, // 7 days in minutes
-        reason: 'New aid request received',
-      });
-      const sentMsg = await thread.send(`
-**Name:** ${name}
-**Trans or Nonbinary:** ${isTrans}
-**Pronouns:** ${pronouns}
-**Amount Requested:** $${amountRequested}
-**Category:** ${category}
-**Description:** ${description}
-**Neighborhood:** ${neighborhood}
-**Social Media:** ${socialMedia}
-**Contact Method:** ${contactMethod}
-**Contact Info:** ${contactInfo}
-**Receive Method:** ${receiveMethod}
-**References:** ${references}
-
-**Request ID:** ${id}
-**IP Address:** ${userIP}
-**Approximate Location:** ${location}
-**Timestamp:** ${requestReceivedAt.toLocaleString()}
-
-**State**: Submitted
-**Next Step**: ${submittedNextStep}
-`);
-      // Attach reaction collector for the new message.
-      attachCollector(sentMsg, thread.name);
-    }
-  } catch (err) {
-    console.error('Error creating Discord thread:', err);
-  }
-}
 
 module.exports = { sendDiscordAidRequest };

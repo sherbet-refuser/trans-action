@@ -14,6 +14,18 @@ async function addReferencesColumn() {
   }
 }
 
+// Add "location" column if not present
+async function addLocationColumn() {
+  const [results] = await sequelize.query(`PRAGMA table_info("AidRequest");`);
+  const hasLocation = results.find((col) => col.name === 'location');
+  if (!hasLocation) {
+    await sequelize.query(`ALTER TABLE "AidRequest" ADD COLUMN "location" TEXT;`);
+    console.log('Column "location" added successfully.');
+  } else {
+    console.log('Column "location" already exists. No changes made.');
+  }
+}
+
 // Update AidRequest state from "InReview" to "Submitted"
 async function updateAidRequests() {
   const [affectedCount] = await AidRequest.update(
@@ -27,6 +39,7 @@ async function main() {
   try {
     await updateAidRequests();
     await addReferencesColumn();
+    await addLocationColumn();
   } catch (error) {
     console.error("Error:", error);
   } finally {
