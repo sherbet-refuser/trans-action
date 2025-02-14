@@ -90,16 +90,25 @@ function CurrentRequests({ latestRequests }) {
 function RequestAidForm({ refreshData }) {
   const [name, setName] = useState('');
   const [amountRequested, setAmountRequested] = useState('');
-  const [category, setCategory] = useState('housing');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [isTrans, setIsTrans] = useState('');
   const [neighborhood, setNeighborhood] = useState('');
   const [socialMedia, setSocialMedia] = useState('');
   const [pronouns, setPronouns] = useState('');
-  const [contactMethod, setContactMethod] = useState('email');
+  const [contactMethod, setContactMethod] = useState('');
   const [contactInfo, setContactInfo] = useState('');
-  const [receiveMethod, setReceiveMethod] = useState('venmo');
+  const [receiveMethod, setReceiveMethod] = useState('');
   const [references, setReferences] = useState('');
+  const [receiveDetails, setReceiveDetails] = useState('');
+
+  const handleReceiveMethodChange = (e) => {
+    const method = e.target.value;
+    setReceiveMethod(method);
+    if (method === 'cash' || method === '') {
+      setReceiveDetails('');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -118,6 +127,10 @@ function RequestAidForm({ refreshData }) {
       alert('Please fill out all required fields.');
       return;
     }
+    if ((receiveMethod === 'venmo' || receiveMethod === 'cash app') && !receiveDetails) {
+      alert('Please provide your username for Venmo or Cash app.');
+      return;
+    }
     const payload = {
       name,
       isTrans,
@@ -131,6 +144,7 @@ function RequestAidForm({ refreshData }) {
       contactInfo,
       receiveMethod,
       references,
+      receiveDetails,
     };
     try {
       const res = await fetch(config.api.endpoint + '/request', {
@@ -240,10 +254,11 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setContactMethod(e.target.value)}
               required
             >
-              <option value="email">email</option>
-              <option value="signal">signal</option>
-              <option value="text">text</option>
+              <option value="">select</option>
               <option value="discord">discord</option>
+              <option value="signal">signal</option>
+              <option value="email">email</option>
+              <option value="text">text</option>
               <option value="other">other</option>
             </select>
             <label htmlFor="contactInfo">
@@ -262,12 +277,26 @@ function RequestAidForm({ refreshData }) {
             <select
               id="receiveMethod"
               value={receiveMethod}
-              onChange={(e) => setReceiveMethod(e.target.value)}
+              onChange={handleReceiveMethodChange}
               required
             >
+              <option value="">select</option>
               <option value="venmo">venmo</option>
+              <option value="cash app">cash app</option>
               <option value="cash">cash</option>
             </select>
+            {(receiveMethod === 'venmo' || receiveMethod === 'cash app') && (
+              <>
+                <label htmlFor="receiveDetails">{receiveMethod} username</label>
+                <input
+                  id="receiveDetails"
+                  type="text"
+                  value={receiveDetails}
+                  onChange={(e) => setReceiveDetails(e.target.value)}
+                  required
+                />
+              </>
+            )}
           </fieldset>
           <fieldset>
             <legend style={{ color: '#5BCEFA' }}>shared publicly</legend>
@@ -286,6 +315,7 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setCategory(e.target.value)}
               required
             >
+              <option value="">select</option>
               <option value="housing">housing</option>
               <option value="health">health</option>
               <option value="food">food</option>

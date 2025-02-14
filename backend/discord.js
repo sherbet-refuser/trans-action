@@ -65,6 +65,7 @@ function buildMessageContent(request) {
 **Contact Method:** ${request.contactMethod}
 **Contact Info:** ${request.contactInfo}
 **Receive Method:** ${request.receiveMethod}
+**Receive Details:** ${request.receiveDetails || ''}
 **References:** ${request.references || ''}
 
 **Request ID:** ${request.id}
