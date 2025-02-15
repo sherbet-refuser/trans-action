@@ -74,11 +74,11 @@ function About() {
             <li>
               Email:&nbsp;
               <a
-                href="mailto:support@seattle.transaction.fund"
+                href="mailto:seattle@transaction.fund"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                support@seattle.transaction.fund
+                seattle@transaction.fund
               </a>
             </li>
             <li>

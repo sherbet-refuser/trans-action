@@ -2,6 +2,7 @@
   "cSpell.words": [
     "anonymization",
     "Applebot",
+    "BECU",
     "Bingbot",
     "geoip",
     "Googlebot",
@@ -15,7 +16,8 @@
     "seattleite",
     "supermajority",
     "urlset",
-    "venmo"
+    "venmo",
+    "zelle"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
