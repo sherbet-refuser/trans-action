@@ -13,6 +13,7 @@ rsync \
     -avz \
     --exclude 'backend/db' \
     --exclude 'node_modules' \
+    --exclude '.venv' \
     --delete-after \
     ./ \
     "$REMOTE:~/trans-action"
