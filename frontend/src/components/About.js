@@ -11,8 +11,8 @@ function About() {
         </p>
 
         <p>
-          This organization isn't a registered nonprofit yet. Contributions are
-          not tax-deductible.
+          This organization isn't classified as a 501(c)(3).
+          Contributions are not tax-deductible.
         </p>
 
         <div className="team-section">
@@ -21,8 +21,11 @@ function About() {
             <li className="team-member">
               <img src="/kay-160.jpeg" alt="selfie of kay with blue hair smiling while riding the bus" />
               <div className="info">
-                <strong>kay</strong> they/them
-                <p>say hi the next time you see me skateboarding around downtown or cap hill!</p>
+                <strong>kay</strong>
+                they/she
+                <p>
+                founder of the fund, longtime seattleite, probably skateboarding past you on broadway
+                </p>
               </div>
             </li>
           </ul>
@@ -65,13 +68,13 @@ function About() {
           <h3>Contact</h3>
           <ul>
             <li>
-              Website Admin:&nbsp;
+              Email:&nbsp;
               <a
-                href="mailto:sherbet-refuser0j@icloud.com"
+                href="mailto:support@seattle.transaction.fund"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                sherbet-refuser0j@icloud.com
+                support@seattle.transaction.fund
               </a>
             </li>
             <li>
