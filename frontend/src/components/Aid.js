@@ -240,8 +240,8 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setSocialMedia(e.target.value)}
             />
             <label htmlFor="references">
-              if you know anyone who works with Seattle TransAction Fund, or
-              anyone who has received aid from us before, please list them here
+              if you know anyone on our team, or anyone who has received aid
+              from us before, please list them here
             </label>
             <textarea
               id="references"
