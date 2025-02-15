@@ -30,6 +30,12 @@ function App() {
     refreshLatestData();
   }, []);
 
+  useEffect(() => {
+    if (config.app.env !== 'production') {
+      document.title += " [dev]";
+    }
+  }, []);
+
   return (
     <Router>
       <div className="app-container">
