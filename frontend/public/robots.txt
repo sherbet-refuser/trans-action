@@ -11,6 +11,9 @@ Disallow:
 User-agent: Applebot
 Disallow:
 
+User-agent: archive.org_bot
+Disallow:
+
 # block all other bots
 User-agent: *
 Disallow: /

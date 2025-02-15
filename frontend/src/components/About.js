@@ -20,7 +20,7 @@ function About() {
           <ul className="team-list">
             <li className="team-member">
               <img
-                src="/kay-160.jpeg"
+                src="/kay-160.webp"
                 alt="selfie of kay with blue hair smiling while riding the bus"
               />
               <div className="info">

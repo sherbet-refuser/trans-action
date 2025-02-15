@@ -18,6 +18,7 @@
     "supermajority",
     "urlset",
     "venmo",
+    "webp",
     "zelle"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
@@ -29,5 +30,8 @@
   "javascript.format.enable": false,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
   }
 }
