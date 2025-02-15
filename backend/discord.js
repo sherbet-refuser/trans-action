@@ -216,6 +216,7 @@ async function reattachCollectors(channel) {
     for (const thread of threadsData.threads.values()) {
       let messages = await thread.messages.fetch();
       console.log(`Found ${messages.size} messages in thread '${thread.name}'`);
+      if (messages.size === 0) continue;
       messages = messages.sort(
         (a, b) => a.createdTimestamp - b.createdTimestamp
       );
