@@ -11,20 +11,24 @@ function About() {
         </p>
 
         <p>
-          This organization isn't classified as a 501(c)(3).
-          Contributions are not tax-deductible.
+          This organization isn't classified as a 501(c)(3). Contributions are
+          not tax-deductible.
         </p>
 
         <div className="team-section">
           <h3>Team</h3>
           <ul className="team-list">
             <li className="team-member">
-              <img src="/kay-160.jpeg" alt="selfie of kay with blue hair smiling while riding the bus" />
+              <img
+                src="/kay-160.jpeg"
+                alt="selfie of kay with blue hair smiling while riding the bus"
+              />
               <div className="info">
                 <strong>kay</strong>
                 they/she
                 <p>
-                founder of the fund, longtime seattleite, probably skateboarding past you on broadway
+                  founder of the fund, longtime seattleite, probably
+                  skateboarding past you on broadway
                 </p>
               </div>
             </li>
