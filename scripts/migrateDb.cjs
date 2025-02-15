@@ -38,6 +38,18 @@ async function addReceiveDetailsColumn() {
   }
 }
 
+// Add "referral" column if not present
+async function addReferralColumn() {
+  const [results] = await sequelize.query(`PRAGMA table_info("AidRequest");`);
+  const hasReferral = results.find((col) => col.name === 'referral');
+  if (!hasReferral) {
+    await sequelize.query(`ALTER TABLE "AidRequest" ADD COLUMN "referral" TEXT;`);
+    console.log('Column "referral" added successfully.');
+  } else {
+    console.log('Column "referral" already exists. No changes made.');
+  }
+}
+
 // Update AidRequest state from "InReview" to "Submitted"
 async function updateAidRequests() {
   const [affectedCount] = await AidRequest.update(
@@ -53,6 +65,7 @@ async function main() {
     await addReferencesColumn();
     await addLocationColumn();
     await addReceiveDetailsColumn();
+    await addReferralColumn();
   } catch (error) {
     console.error("Error:", error);
   } finally {

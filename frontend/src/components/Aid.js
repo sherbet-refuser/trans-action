@@ -100,6 +100,7 @@ function RequestAidForm({ refreshData }) {
   const [contactInfo, setContactInfo] = useState('');
   const [receiveMethod, setReceiveMethod] = useState('');
   const [references, setReferences] = useState('');
+  const [referral, setReferral] = useState('');
   const [receiveDetails, setReceiveDetails] = useState('');
 
   const handleReceiveMethodChange = (e) => {
@@ -147,6 +148,7 @@ function RequestAidForm({ refreshData }) {
       contactInfo,
       receiveMethod,
       references,
+      referral,
       receiveDetails,
     };
     try {
@@ -247,6 +249,13 @@ function RequestAidForm({ refreshData }) {
               id="references"
               value={references}
               onChange={(e) => setReferences(e.target.value)}
+            />
+            <label htmlFor="referral">how did you hear about us?</label>
+            <input
+              id="referral"
+              type="text"
+              value={referral}
+              onChange={(e) => setReferral(e.target.value)}
             />
             <label htmlFor="contactMethod">
               how should we reach out to you?

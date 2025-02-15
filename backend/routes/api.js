@@ -80,6 +80,7 @@ router.post('/request', async (req, res) => {
       contactInfo,
       receiveMethod,
       references,
+      referral,
     } = req.body;
     // (Optional) Validate fields if necessary.
 
@@ -99,6 +100,7 @@ router.post('/request', async (req, res) => {
       contactInfo,
       receiveMethod,
       references,
+      referral,
       state: 'Submitted',
       ip: userIP,
       location,

@@ -67,6 +67,7 @@ function buildMessageContent(request) {
 **Receive Method:** ${request.receiveMethod}
 **Receive Details:** ${request.receiveDetails || ''}
 **References:** ${request.references || ''}
+**Referral:** ${request.referral || ''}
 
 **Request ID:** ${request.id}
 **IP Address:** ${request.ip}
