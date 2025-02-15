@@ -295,11 +295,16 @@ function RequestAidForm({ refreshData }) {
               <option value="">select</option>
               <option value="venmo">venmo</option>
               <option value="cash app">cash app</option>
+              <option value="zelle">zelle</option>
               <option value="cash">cash</option>
             </select>
-            {(receiveMethod === 'venmo' || receiveMethod === 'cash app') && (
+            {(receiveMethod === 'venmo' || receiveMethod === 'cash app' || receiveMethod === 'zelle') && (
               <>
-                <label htmlFor="receiveDetails">{receiveMethod} username</label>
+                <label htmlFor="receiveDetails">
+                  {receiveMethod === 'zelle'
+                    ? 'zelle email address or phone number'
+                    : `${receiveMethod} username`}
+                </label>
                 <input
                   id="receiveDetails"
                   type="text"
