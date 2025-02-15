@@ -32,33 +32,30 @@ function About() {
           <h3>Links</h3>
           <ul>
             <li>
-              Organization Bylaws:&nbsp;
-              <a
-                href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                charter.md
-              </a>
-            </li>
-            <li>
-              Policies:&nbsp;
               <a
                 href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/agreements.md#collective-actions--agreements"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                agreements.md
+                Policies
               </a>
             </li>
             <li>
-              Website/Server Source Code:&nbsp;
+              <a
+                href="https://github.com/sherbet-refuser/trans-action/blob/main/docs/charter.md#transaction-redistribution-council-charter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Organization Charter
+              </a>
+            </li>
+            <li>
               <a
                 href="https://github.com/sherbet-refuser/trans-action"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub Repo
+                Website/Server Source Code
               </a>
             </li>
           </ul>

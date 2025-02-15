@@ -157,7 +157,7 @@ h2 {
 }
 
 .about-content a:hover {
-    text-decoration: underline;
+    color: #F5A9B8;
 }
 
 .aid-form {
@@ -306,7 +306,6 @@ button[type="submit"]:focus {
 }
 
 .links a:hover {
-    text-decoration: underline;
     color: #ff90c2;
 }
 
@@ -325,7 +324,6 @@ button[type="submit"]:focus {
 }
 
 .contacts a:hover {
-    text-decoration: underline;
     color: #ff90c2;
 }
 
