@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     if (config.app.env !== 'production') {
-      document.title += ' [dev]';
+      document.title = '[dev] ' + document.title;
     }
   }, []);
 
