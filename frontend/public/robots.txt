@@ -17,6 +17,11 @@ Disallow:
 User-agent: Discordbot
 Disallow:
 
+User-agent: AhrefsBot
+Disallow:
+
 # block all other bots
 User-agent: *
 Disallow: /
+
+# This site is geoblocked outside North America.
