@@ -298,7 +298,9 @@ function RequestAidForm({ refreshData }) {
               <option value="zelle">zelle</option>
               <option value="cash">cash</option>
             </select>
-            {(receiveMethod === 'venmo' || receiveMethod === 'cash app' || receiveMethod === 'zelle') && (
+            {(receiveMethod === 'venmo' ||
+              receiveMethod === 'cash app' ||
+              receiveMethod === 'zelle') && (
               <>
                 <label htmlFor="receiveDetails">
                   {receiveMethod === 'zelle'
