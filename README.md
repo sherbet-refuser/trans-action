@@ -1,53 +1,23 @@
 # TransAction Fund
 
-a mutual aid platform
+A mutual aid platform.
 
-the backend intermittently pulls payment and bank data, and updates a sqlite db. the frontend is a react single-page app.
+The backend periodically pulls payment and bank data and updates a SQLite db. The frontend is a React single-page app.
 
 ## Prerequisites
 
-- node & npm
-- (optional) docker & docker-compose
+- Docker & Docker Compose
 
-## Setup
+## Setup with Docker
 
-### Backend
-
-1. cd into `backend`
+1. Ensure you have setup your environment variables by copying `.env.template` to `.env.development` (or `.env.production`) and update the values.
+2. From the project root, run:
    ```bash
-   cd backend
-   npm install
+   docker-compose up --build
    ```
-2. (optional) set your env vars or update config.js for BANK_API_KEY, PAYMENT_PROCESSOR_URL, etc.
-3. run the server:
-   ```bash
-   npm start
-   ```
-4. run the scheduler (in another terminal):
-   ```bash
-   npm run scheduler
-   ```
+   This will build and start:
+   - The backend on port 3001
+   - The frontend on port 3000
+   - The scheduler service for background tasks
 
-### Frontend
-
-    1.	cd into frontend
-    ```bash
-    cd frontend
-    npm install
-    ```
-    2.	start the app:
-    ```bash
-    npm start
-    ```
-
-the app will be available at http://localhost:3000.
-
-### Deployment with Docker
-
-build and run both services:
-
-```bash
-docker-compose up --build
-```
-
-backend will run on port 3001 and frontend on 3000.
+3. Access the frontend at http://localhost:3000 and the backend API at http://localhost:3001/api/v1.
