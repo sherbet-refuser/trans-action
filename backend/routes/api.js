@@ -11,6 +11,9 @@ const {
 const { sendDiscordAidRequest } = require('../discord');
 const { getLocation } = require('../utils/location');
 
+// GET /api/v1/ – health check
+router.get('/', (req, res) => res.json({ status: 'ok' }));
+
 // GET /api/v1/latest – returns the latest data
 router.get('/latest', async (req, res) => {
   try {
