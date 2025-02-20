@@ -12,10 +12,13 @@ The backend periodically pulls payment and bank data and updates a SQLite db. Th
 
 1. Ensure you have setup your environment variables by copying `.env.template` to `.env.development` (or `.env.production`) and update the values.
 2. From the project root, run:
+
    ```bash
    docker-compose up --build
    ```
+
    This will build and start:
+
    - The backend on port 3001
    - The frontend on port 3000
    - The scheduler service for background tasks
