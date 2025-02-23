@@ -18,5 +18,6 @@
 - [ ] Migrate from Discord to self-hosted/e2e server
 - [ ] Set up logging for council chat
 - [ ] Trademark
-- [ ] Print out required contributions if there's a shortfall with approved requests
+- [ ] Display required contributions on fund page if there's a shortfall with the approved requests
 - [ ] Get feedback from UI expert
+- [ ] Pursue 501(c)(3) classification if/when we approach $50k in contributions per year
