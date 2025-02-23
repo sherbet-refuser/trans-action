@@ -125,9 +125,9 @@ function Contribute() {
         {config.donateEnabled ? 'contribute now' : 'payments disabled'}
       </button>
       <p>
-        disclaimer: contributions are anonymous and will not be disclosed, except
-        as required by the IRS for individuals that contribute over $5,000 in a
-        single year.
+        disclaimer: contributions are anonymous and will not be disclosed,
+        except as required by the IRS for individuals that contribute over
+        $5,000 in a single year.
       </p>
     </div>
   );
