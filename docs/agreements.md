@@ -31,7 +31,8 @@ The Council shall not disburse funds to intermediary platforms or third parties,
 
 - GoFundMe or similar crowdfunding platforms
 - Intermediary individuals (friends/family of recipient)
-- Other donation or payment processing platforms
+- Other donation or payment processing platforms that incur additional fees
+  - This does NOT include peer-to-peer payment platforms such as Venmo and Cash App
 
 ### Rationale
 
@@ -132,7 +133,8 @@ While the Council maintains ultimate discretion in evaluating aid requests, the 
 
 1. **Initial Review**
 
-   - Verify requestor is a trans individual in King County
+   - Verify requestor identifies as transgender, nonbinary, or gender diverse
+   - Verify requestor lives in the Seattle metropolitan area
    - Confirm request includes required information
    - Check for any previous aid history
 

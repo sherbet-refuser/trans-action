@@ -206,7 +206,9 @@ function RequestAidForm({ refreshData }) {
               onChange={(e) => setPronouns(e.target.value)}
               required
             />
-            <label htmlFor="isTrans">do you identify as trans?</label>
+            <label htmlFor="isTrans">
+              do you identify as trans, nonbinary, or gender diverse?
+            </label>
             <select
               id="isTrans"
               value={isTrans}
@@ -342,10 +344,13 @@ function RequestAidForm({ refreshData }) {
             </select>
           </fieldset>
         </div>
+        <button type="submit" disabled={!config.requestAidEnabled}>
+          {config.requestAidEnabled ? 'request aid' : 'requests disabled'}
+        </button>
         <p style={{ marginTop: '1rem' }}>
           once you submit, our team will begin reviewing your request. if you
           don't hear back within one week, please reach out to the email address
-          or Discord channel on the{' '}
+          or discord channel on the{' '}
           <Link
             to="/about"
             style={{ textDecoration: 'underline', color: 'inherit' }}
@@ -354,9 +359,10 @@ function RequestAidForm({ refreshData }) {
           </Link>{' '}
           page.
         </p>
-        <button type="submit" disabled={!config.requestAidEnabled}>
-          {config.requestAidEnabled ? 'request aid' : 'requests disabled'}
-        </button>
+        <p>
+          aid requests are hosted on our team's private discord server. we will
+          never disclose your information under any circumstances.
+        </p>
       </form>
     </div>
   );

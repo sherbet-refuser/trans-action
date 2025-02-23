@@ -55,7 +55,7 @@ function buildMessageContent(request) {
   }
   return `
 **Name:** ${request.name}
-**Trans or Nonbinary:** ${request.isTrans}
+**2STGD?:** ${request.isTrans}
 **Pronouns:** ${request.pronouns}
 **Amount Requested:** $${request.amountRequested}
 **Category:** ${request.category}

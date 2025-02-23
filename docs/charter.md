@@ -8,8 +8,8 @@ The TransAction Redistribution Council is established to equitably manage and di
 
 1. **Eligibility Requirements**: Council membership is limited to individuals who:
 
-   - Identify as transgender
-   - Reside within King County, Washington
+   - Identify as transgender, nonbinary, or gender diverse
+   - Reside within the Seattle metropolitan area
 
 2. **Required Information**: Each Council member must provide and maintain current records of:
 
@@ -25,7 +25,7 @@ The TransAction Redistribution Council is established to equitably manage and di
 6. **Resignation**: A Council member may resign at any time by providing written notice to the Council. The resignation is effective immediately upon receipt by any other Council member.
 7. **Non-Hierarchical Membership**: All members of the Council hold equal status, with no hierarchical authority structure, except where Operational Roles specified in Article II grant additional authorizations.
 8. **Term Recommendations**:
-   - Members are encouraged to serve terms of approximately 6 months
+   - Members are encouraged to serve terms of approximately 6-12 months
    - At term end, members should consider transitioning their role to new community members through the replacement process
    - To maintain operational stability, members timing their transitions should coordinate to avoid overlapping with other member transitions
    - These term guidelines are recommendations rather than requirements
@@ -35,20 +35,20 @@ The TransAction Redistribution Council is established to equitably manage and di
 1. **System Administrators**
 
    - Two System Administrators should be appointed to manage technical infrastructure
-   - Responsibilities include maintaining systems, security, and operational stability
+   - Responsibilities include, but are not limited to: **maintaining the website**, the **payment processor integration**, the **bank account integration**, **hosting documents**, and **managing communication platforms**.
    - May establish accounts and services in the organization's name when directly supporting operations
-   - Having exactly two System Administrators is strongly recommended
+   - Having exactly two System Administrators is recommended, to create redundancy while limiting the number of members that need additional authorizations
 
 2. **Treasurers**
 
    - Two Treasurers should be appointed to manage financial accounts
-   - Responsibilities include disbursing approved funds to aid recipients
+   - Responsibilities include, but are not limited to: **disbursing funds** from the community fund, **authorizing purchases and reimbursements** from the administrative fund, **securing financial records**, and **filing taxes**.
    - Shall be authorized users on all financial accounts
-   - Having exactly two Treasurers is strongly recommended
+   - Having exactly two Treasurers is recommended, to create redundancy while limiting the number of members that need additional authorizations
 
 3. **Role Requirements**
    - System Administrators and Treasurers may be, but are not required to be, Council members
-   - An individual may hold both System Administrator and Treasurer roles simultaneously
+   - An individual may hold multiple role appointments simultaneously
    - Appointment and removal of individuals in these roles requires supermajority consent
 
 ## Article III: Voting Procedures
@@ -87,6 +87,10 @@ The TransAction Redistribution Council is established to equitably manage and di
 
 2. Treasurers shall execute financial transactions as approved by Council vote
 3. System Administrators shall maintain secure infrastructure for managing and tracking transactions
+4. **Fund Solicitation**:
+   - Any Council member may promote and solicit contributions to the community fund using approved payment processor links
+   - Special fundraising events or campaigns specifically for the administrative fund require majority consent before initiation
+   - All fundraising materials must clearly indicate whether funds are being raised for community aid or administrative purposes
 
 ## Ratification & Amendments
 
@@ -105,9 +109,9 @@ Upon ratification of this Charter and onboarding of initial Council members:
 2. The pre-ratification steward shall:
 
    - Become a Council member
-   - Be appointed as one of the two System Administrators
-   - Be appointed as one of the two Treasurers
+   - Be appointed as the initial sole System Administrator
+   - Be appointed as the initial sole Treasurer
 
-   These appointments will be subject to the same removal and replacement procedures as any other role holder.
+   These appointments will be subject to the same removal and replacement procedures as any other role holder. Additional role appointments may be voted upon separately from the charter ratification.
 
 This Charter shall take effect upon ratification by an initial supermajority of the founding Council members. Amendments to this Charter shall be enacted through the procedures outlined in Article II.

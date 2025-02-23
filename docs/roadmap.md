@@ -1,0 +1,22 @@
+# Roadmap
+
+- [/] Finish recruiting council members
+- [ ] Get online banking account activated
+- [ ] Seed initial balance
+- [ ] Ratify charter and documentation
+- [ ] Set up Venmo account
+- [ ] Set up Cash App account
+- [ ] Set up Zelle
+- [ ] Demonstrate a working example with final code and club account
+- [ ] **Start accepting aid requests**
+- [ ] Verify location is getting set in requests
+- [ ] **Start accepting contributions**
+- [/] Public bio for each board member (first name, pronouns, pic, one-line summary, roles)
+- [/] Set up domain support email
+- [ ] Recruit backup sysadmin
+- [ ] Commission logo (Discord, favicons, website preview)
+- [ ] Migrate from Discord to self-hosted/e2e server
+- [ ] Set up logging for council chat
+- [ ] Trademark
+- [ ] Print out required contributions if there's a shortfall with approved requests
+- [ ] Get feedback from UI expert
