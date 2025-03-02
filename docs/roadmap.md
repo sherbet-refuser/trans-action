@@ -20,5 +20,6 @@
 - [ ] Set up logging for council chat
 - [ ] Trademark
 - [ ] Display required contributions on fund page if there's a shortfall with the approved requests
+- [ ] Display both deposits and withdrawals on fund page
 - [ ] Get feedback from UI expert
 - [ ] Pursue 501(c)(3) classification if/when we approach $50k in contributions per year
