@@ -9,11 +9,11 @@
 - [ ] Ratify charter and documentation
 - [ ] Seed initial balance
 - [ ] Demonstrate a working example with final code and club account
+- [ ] (Partial) Public bio for each board member (first name, pronouns, pic, one-line summary, roles)
 - [ ] **Start accepting aid requests**
 - [ ] Verify location is getting set in requests
 - [ ] **Start accepting contributions**
-- [ ] (In Progress) Public bio for each board member (first name, pronouns, pic, one-line summary, roles)
-- [ ] (In Progress) Set up domain support email
+- [ ] (Partial) Set up domain support email
 - [ ] Recruit backup sysadmin
 - [ ] Commission logo (Discord, favicons, website preview)
 - [ ] Migrate from Discord to self-hosted/e2e server
